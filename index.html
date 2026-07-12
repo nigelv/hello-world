@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Skyline — Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="sky" aria-hidden="true">
+      <div class="sky__wash"></div>
+      <div class="sky__glow"></div>
+      <div class="sky__drift sky__drift--a"></div>
+      <div class="sky__drift sky__drift--b"></div>
+    </div>
+
+    <div class="app">
+      <header class="topbar">
+        <form class="search" id="search-form" role="search">
+          <label class="visually-hidden" for="city-input">Search city</label>
+          <input
+            id="city-input"
+            name="city"
+            type="search"
+            placeholder="Search a city"
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Look up</button>
+        </form>
+      </header>
+
+      <main>
+        <section class="hero" id="hero" aria-live="polite">
+          <p class="brand">Skyline</p>
+          <h1 class="hero__place" id="place">Finding your sky…</h1>
+          <p class="hero__temp" id="temp" aria-label="Current temperature">—°</p>
+          <p class="hero__summary" id="summary">Loading the forecast</p>
+        </section>
+
+        <section class="details" aria-label="Current conditions">
+          <dl class="hero__meta" id="meta">
+            <div>
+              <dt>Feels</dt>
+              <dd id="feels">—°</dd>
+            </div>
+            <div>
+              <dt>Humidity</dt>
+              <dd id="humidity">—%</dd>
+            </div>
+            <div>
+              <dt>Wind</dt>
+              <dd id="wind">—</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="forecast" aria-labelledby="forecast-heading">
+          <div class="forecast__intro">
+            <h2 id="forecast-heading">Next days</h2>
+            <p>A quiet look ahead so you can plan without the noise.</p>
+          </div>
+          <div class="forecast__list" id="forecast-list" role="list"></div>
+        </section>
+      </main>
+
+      <p class="status" id="status" role="status"></p>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
