@@ -3,30 +3,41 @@ import { SITE, SERVICES, SUBURBS } from "./constants";
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
     "@id": `${SITE.url}/#business`,
     name: SITE.legalName,
     alternateName: SITE.name,
-    description: `${SITE.tagline} — window, gutter and pressure cleaning across ${SITE.area}.`,
+    description: SITE.defaultDescription,
     url: SITE.url,
     telephone: SITE.phone,
     email: SITE.email,
+    image: `${SITE.url}/images/hero-window-cleaning.svg`,
+    priceRange: "$$",
+    sameAs: [SITE.googleBusinessUrl],
     areaServed: SUBURBS.map((suburb) => ({
       "@type": "City",
       name: `${suburb}, Victoria, Australia`,
     })),
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Eastern Suburbs",
-      addressRegion: "VIC",
-      addressCountry: "AU",
+      streetAddress: SITE.address.line1,
+      addressLocality: SITE.address.locality,
+      addressRegion: SITE.address.region,
+      postalCode: SITE.address.postalCode,
+      addressCountry: SITE.address.countryCode,
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -37.857,
-      longitude: 145.152,
+      latitude: SITE.geo.latitude,
+      longitude: SITE.geo.longitude,
     },
-    priceRange: "$$",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: SITE.phone,
+      contactType: "customer service",
+      areaServed: "AU",
+      availableLanguage: ["English"],
+    },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -44,14 +55,16 @@ export function localBusinessSchema() {
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Cleaning Services",
+      name: "Window, Gutter and Pressure Cleaning Services",
       itemListElement: SERVICES.map((service) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          "@id": `${SITE.url}${service.href}#service`,
           name: service.title,
           description: service.description,
           url: `${SITE.url}${service.href}`,
+          serviceType: service.title,
           areaServed: SITE.area,
           provider: { "@id": `${SITE.url}/#business` },
         },
@@ -67,26 +80,26 @@ export function serviceSchema(slug: string) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: service.title,
+    "@id": `${SITE.url}${service.href}#service`,
+    name: `${service.title} Eastern Suburbs Melbourne`,
     description: service.description,
     url: `${SITE.url}${service.href}`,
+    serviceType: service.title,
     provider: {
-      "@type": "LocalBusiness",
-      name: SITE.legalName,
-      telephone: SITE.phone,
-      url: SITE.url,
+      "@id": `${SITE.url}/#business`,
     },
     areaServed: {
       "@type": "AdministrativeArea",
       name: SITE.area,
     },
-    serviceType: service.title,
+    brand: {
+      "@type": "Brand",
+      name: SITE.name,
+    },
   };
 }
 
-export function faqSchema(
-  faqs: readonly { q: string; a: string }[],
-) {
+export function faqSchema(faqs: readonly { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -98,5 +111,33 @@ export function faqSchema(
         text: faq.a,
       },
     })),
+  };
+}
+
+export function blogPostingSchema(post: {
+  title: string;
+  excerpt: string;
+  date: string;
+  slug: string;
+  image: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    image: `${SITE.url}${post.image}`,
+    author: {
+      "@type": "Organization",
+      name: SITE.legalName,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.legalName,
+      url: SITE.url,
+    },
+    mainEntityOfPage: `${SITE.url}/blog/${post.slug}`,
   };
 }

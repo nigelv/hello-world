@@ -11,11 +11,22 @@ export function Footer() {
             Dynamic Cleaning <span className="text-brand-mint">VIC</span>
           </p>
           <p className="mt-3 text-sm leading-relaxed text-white/75">
-            {SITE.tagline}. Window, gutter and pressure cleaning across Melbourne&apos;s eastern suburbs.
+            {SITE.tagline}. Window, gutter and pressure cleaning across{" "}
+            {SITE.area}.
           </p>
+          <address className="mt-4 not-italic text-sm text-white/70">
+            {SITE.address.display}
+            <br />
+            <a
+              href={`mailto:${SITE.email}`}
+              className="text-brand-mint hover:text-white"
+            >
+              {SITE.email}
+            </a>
+          </address>
           <a
             href={SITE.phoneHref}
-            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-mint transition hover:text-white"
+            className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-mint transition hover:text-white"
           >
             <PhoneIcon className="h-4 w-4" />
             {SITE.phone}
@@ -34,11 +45,6 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/blog" className="hover:text-white">
-                Blog
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -64,6 +70,14 @@ export function Footer() {
           <p className="mt-4 text-sm leading-relaxed text-white/80">
             {SUBURBS.slice(0, 8).join(", ")} and surrounding eastern suburbs.
           </p>
+          <a
+            href={SITE.googleBusinessUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block text-sm font-semibold text-brand-mint hover:text-white"
+          >
+            Google Business Profile
+          </a>
           <p className="mt-4 text-sm text-white/70">
             Satisfaction guarantee: {SITE.guarantee}
           </p>

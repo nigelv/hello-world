@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
 import { PhoneIcon } from "./Icons";
@@ -5,30 +6,30 @@ import { PhoneIcon } from "./Icons";
 export function Hero() {
   return (
     <section className="relative isolate min-h-[min(92vh,780px)] overflow-hidden">
+      <Image
+        src="/images/hero-window-cleaning.svg"
+        alt="window cleaning Eastern Suburbs Melbourne"
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
+      />
       <div
-        className="absolute inset-0 -z-10 bg-hero-scene"
+        className="absolute inset-0 bg-gradient-to-br from-brand-navy/90 via-brand-blue/75 to-brand-teal/60"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 -z-10 bg-gradient-to-br from-brand-navy/88 via-brand-blue/72 to-brand-teal/65"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -right-24 top-10 -z-10 h-72 w-72 rounded-full bg-brand-mint/20 blur-3xl animate-float"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -left-16 bottom-0 -z-10 h-64 w-64 rounded-full bg-brand-teal/25 blur-3xl"
+        className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-brand-mint/20 blur-3xl animate-float"
         aria-hidden="true"
       />
 
-      <div className="mx-auto flex min-h-[min(92vh,780px)] max-w-6xl flex-col justify-center px-4 pb-20 pt-10 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex min-h-[min(92vh,780px)] max-w-6xl flex-col justify-center px-4 pb-20 pt-10 sm:px-6 lg:px-8">
         <p className="animate-rise font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
           Dynamic Cleaning{" "}
           <span className="text-brand-mint">VIC</span>
         </p>
         <h1 className="mt-5 max-w-2xl animate-rise text-xl font-medium leading-snug text-white/95 sm:text-2xl md:text-[1.7rem] [animation-delay:80ms]">
-          Window &amp; gutter cleaning for Melbourne&apos;s eastern suburbs
+          Window, gutter &amp; pressure cleaning for Eastern Suburbs Melbourne
         </h1>
         <p className="mt-4 max-w-xl animate-rise text-base leading-relaxed text-white/80 sm:text-lg [animation-delay:140ms]">
           Friendly, local and fully insured. Crystal-clear windows, protected

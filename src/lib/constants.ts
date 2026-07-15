@@ -6,7 +6,30 @@ export const SITE = {
   email: "info@dynamiccleaningvic.com.au",
   url: "https://dynamiccleaningvic.com.au",
   area: "Eastern Suburbs Melbourne",
+  /** Service-area NAP — keep identical across site, GBP and citations */
+  address: {
+    line1: "Eastern Suburbs Melbourne",
+    locality: "Melbourne",
+    region: "VIC",
+    postalCode: "3133",
+    country: "Australia",
+    countryCode: "AU",
+    display: "Eastern Suburbs Melbourne, VIC 3133",
+  },
+  geo: {
+    latitude: -37.857,
+    longitude: 145.152,
+  },
+  /** Update with your live Google Business Profile URL when claimed */
+  googleBusinessUrl:
+    "https://www.google.com/maps/search/?api=1&query=Dynamic+Cleaning+Victoria+Eastern+Suburbs+Melbourne",
+  mapsEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.4!2d145.152!3d-37.857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad643c3c6e6e6e7%3A0x0!2sMount%20Waverley%20VIC!5e0!3m2!1sen!2sau!4v1700000000000",
   tagline: "Friendly, local, professional window and gutter cleaning",
+  defaultTitle:
+    "Window Gutter Pressure Cleaning Eastern Suburbs Melbourne | Dynamic Cleaning VIC",
+  defaultDescription:
+    "Professional local window, gutter & pressure cleaning Eastern Melbourne suburbs. Free quotes. Call 0433 230 310.",
   guarantee:
     "If you are not satisfied with the job done, we will come back and fix it until you are.",
 } as const;
@@ -28,13 +51,51 @@ export const SUBURBS = [
   "Blackburn",
   "Forest Hill",
   "Wantirna",
+  "Ashwood",
+  "Chadstone",
+  "Malvern East",
+  "Nunawading",
 ] as const;
 
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
+] as const;
+
+export const CITATIONS = [
+  {
+    name: "Google Business Profile",
+    href: SITE.googleBusinessUrl,
+    note: "Primary local listing — reviews, photos and NAP",
+  },
+  {
+    name: "Yellow Pages",
+    href: "https://www.yellowpages.com.au/",
+    note: "Australian business directory citation",
+  },
+  {
+    name: "True Local",
+    href: "https://www.truelocal.com.au/",
+    note: "Local services directory",
+  },
+  {
+    name: "Oneflare",
+    href: "https://www.oneflare.com.au/",
+    note: "Home services marketplace",
+  },
+  {
+    name: "hipages",
+    href: "https://hipages.com.au/",
+    note: "Trade and home improvement directory",
+  },
+  {
+    name: "Hotfrog",
+    href: "https://www.hotfrog.com.au/",
+    note: "Business citation listing",
+  },
 ] as const;
 
 export const SERVICES = [
@@ -44,20 +105,27 @@ export const SERVICES = [
     shortTitle: "Windows",
     href: "/services/window-cleaning",
     description:
-      "Crystal-clear windows, flyscreens, mirrors and frames that make your home feel brighter and cleaner.",
-    imageAlt:
-      "Professional window cleaning on a suburban home in Eastern Melbourne",
+      "Professional window cleaning Eastern Suburbs Melbourne — streak-free glass, flyscreens, mirrors and frames for brighter homes.",
+    imageAlt: "window cleaning Eastern Suburbs Melbourne",
+    heroImage: "/images/hero-window-cleaning.svg",
+    beforeImage: "/images/window-before.svg",
+    afterImage: "/images/window-after.svg",
+    beforeAlt: "dirty windows before window cleaning Eastern Suburbs Melbourne",
+    afterAlt: "sparkling clean windows after window cleaning Eastern Suburbs Melbourne",
     benefits: [
-      "Brighter rooms with more natural light",
-      "Healthier home with less dust and allergens on glass",
+      "Brighter rooms with more natural light across eastern suburbs homes",
+      "Less dust and allergens collecting on glass and frames",
       "Flyscreens, mirrors, splashbacks, frames and ledges included",
-      "Trusted local cleaner who respects your home",
+      "Trusted local cleaner who respects your home and privacy",
+      "Interior and exterior glass cleaned to a streak-free finish",
+      "Ideal for Vermont South, Mount Waverley, Glen Waverley and surrounds",
     ],
     process: [
       {
         step: "1",
         title: "Free quote",
-        detail: "Tell us about your home and we’ll provide a clear, no-obligation quote.",
+        detail:
+          "Tell us about your home in the eastern suburbs and we provide a clear, no-obligation quote.",
       },
       {
         step: "2",
@@ -67,26 +135,36 @@ export const SERVICES = [
       {
         step: "3",
         title: "Thorough clean",
-        detail: "Windows, screens, frames and ledges cleaned to a streak-free finish.",
+        detail:
+          "Windows, screens, frames and ledges cleaned carefully inside and out.",
       },
       {
         step: "4",
         title: "Satisfaction check",
-        detail: "We walk through the result with you — and fix anything that isn’t right.",
+        detail:
+          "We walk through the result with you — and fix anything that isn’t right.",
       },
     ],
     faqs: [
       {
-        q: "How often should I get my windows cleaned in Melbourne’s eastern suburbs?",
-        a: "Most homes benefit from a clean every 3–6 months. Leafy areas like Vermont South and Mount Waverley often need seasonal cleans after heavy pollen or stormy weather.",
+        q: "How often should I get window cleaning in Eastern Suburbs Melbourne?",
+        a: "Most homes benefit from professional window cleaning every 3–6 months. Leafy suburbs like Vermont South, Mount Waverley and Wheelers Hill often need seasonal cleans after pollen, storms or building works nearby.",
       },
       {
-        q: "Do you clean inside and outside?",
-        a: "Yes. We clean interior and exterior glass, and can include flyscreens, mirrors and splashbacks as part of the job.",
+        q: "Do you clean inside and outside windows?",
+        a: "Yes. Dynamic Cleaning VIC cleans interior and exterior glass, and can include flyscreens, mirrors, splashbacks, frames and ledges as part of your window cleaning service.",
       },
       {
-        q: "Are you insured?",
-        a: "Yes. Dynamic Cleaning VIC is fully insured, and we treat every home with care and professionalism.",
+        q: "Are you insured for residential window cleaning?",
+        a: "Yes. We are fully insured and treat every eastern suburbs home with care. Window cleaning can feel personal — we work respectfully and professionally throughout your property.",
+      },
+      {
+        q: "Which suburbs do you cover for window cleaning?",
+        a: "We provide window cleaning across Eastern Suburbs Melbourne including Vermont South, Mount Waverley, Glen Waverley, Wheelers Hill, Burwood, Box Hill, Doncaster, Hawthorn, Camberwell, Kew and more.",
+      },
+      {
+        q: "How do I get a free window cleaning quote?",
+        a: "Call 0433 230 310 or use our contact form with your suburb and property details. We’ll reply promptly with a free quote for window cleaning Eastern Suburbs Melbourne.",
       },
     ],
   },
@@ -96,49 +174,65 @@ export const SERVICES = [
     shortTitle: "Gutters",
     href: "/services/gutter-cleaning",
     description:
-      "Protect your roof and foundations from leaf build-up — essential in Melbourne’s leafy eastern suburbs.",
-    imageAlt:
-      "Gutter cleaning removing leaves and debris from a residential gutter",
+      "Gutter cleaning Eastern Suburbs Melbourne — clear leaves, protect roofs and prevent water damage in leafy suburbs like Vermont South and Mount Waverley.",
+    imageAlt: "gutter cleaning Eastern Suburbs Melbourne",
+    heroImage: "/images/hero-gutter-cleaning.svg",
+    beforeImage: "/images/gutter-before.svg",
+    afterImage: "/images/gutter-after.svg",
+    beforeAlt: "blocked gutters full of leaves before gutter cleaning Eastern Suburbs Melbourne",
+    afterAlt: "clear flowing gutters after gutter cleaning Eastern Suburbs Melbourne",
     benefits: [
-      "Prevents water overflow that damages fascias and foundations",
-      "Stops leaf compost and blocked downpipes",
-      "Protects roof longevity in leafy eastern suburbs",
-      "Safer than DIY ladder work — we handle the heights",
+      "Prevents overflow that damages fascias, eaves and foundations",
+      "Stops leaf compost and blocked downpipes in leafy suburbs",
+      "Protects roof longevity across Eastern Suburbs Melbourne",
+      "Safer than DIY ladder work — we handle multi-level homes",
+      "Ideal after autumn leaf fall in Vermont South and Mount Waverley",
+      "Fully insured local gutter cleaning with a satisfaction guarantee",
     ],
     process: [
       {
         step: "1",
         title: "Inspect",
-        detail: "We assess gutters, downpipes and access points before we start.",
+        detail: "We assess gutters, downpipes and safe access before we start.",
       },
       {
         step: "2",
         title: "Clear debris",
-        detail: "Leaves, moss and sludge are removed carefully from gutters and outlets.",
+        detail:
+          "Leaves, moss and sludge are removed carefully from gutters and outlets.",
       },
       {
         step: "3",
         title: "Flush & check",
-        detail: "Downpipes are flushed where needed so water flows freely again.",
+        detail: "Downpipes are flushed where needed so rainwater flows freely.",
       },
       {
         step: "4",
         title: "Tidy finish",
-        detail: "We leave the site clean and confirm everything is flowing correctly.",
+        detail:
+          "We leave the site clean and confirm everything is flowing correctly.",
       },
     ],
     faqs: [
       {
-        q: "How often do gutters need cleaning in Vermont South and surrounds?",
-        a: "In leafy suburbs such as Vermont South, Mount Waverley and Wheelers Hill, we recommend at least once or twice a year — ideally after autumn leaf fall.",
+        q: "How often do gutters need cleaning in Vermont South and Mount Waverley?",
+        a: "In leafy eastern suburbs such as Vermont South, Mount Waverley and Wheelers Hill, we recommend gutter cleaning at least once or twice a year — ideally after autumn leaf fall and again if storms dump heavy debris.",
       },
       {
-        q: "What happens if gutters aren’t cleaned?",
-        a: "Leaves break down into compost, block downpipes, and can cause overflow that damages eaves, walls and foundations.",
+        q: "What happens if gutters aren’t cleaned regularly?",
+        a: "Leaves break down into compost, block downpipes, and cause overflow that can damage eaves, walls, landscaping and foundations. Regular gutter cleaning Eastern Suburbs Melbourne protects your home’s integrity.",
       },
       {
-        q: "Can you clean two-storey homes?",
-        a: "Yes. We are experienced with multi-level homes across the eastern suburbs and use safe, professional methods.",
+        q: "Can you clean gutters on two-storey homes?",
+        a: "Yes. We are experienced with multi-level homes across the eastern suburbs and use safe, professional methods for residential gutter cleaning.",
+      },
+      {
+        q: "Do you remove debris from the property?",
+        a: "We clear gutters and leave your site tidy. Ask us when you book if you need debris bagged or removed as part of the job.",
+      },
+      {
+        q: "How do I book gutter cleaning near Glen Waverley?",
+        a: "Call 0433 230 310 for a free quote. Tell us your suburb (Glen Waverley, Burwood, Box Hill, etc.) and home type so we can schedule reliable local gutter cleaning.",
       },
     ],
   },
@@ -148,20 +242,27 @@ export const SERVICES = [
     shortTitle: "Pressure",
     href: "/services/pressure-cleaning",
     description:
-      "Restore driveways, paths, decks and exteriors — one of the most dramatic ways to freshen your property.",
-    imageAlt:
-      "Before and after pressure cleaning of a concrete driveway",
+      "Pressure cleaning Eastern Suburbs Melbourne — restore driveways, decks, paths and exteriors for safer, fresher kerb appeal.",
+    imageAlt: "pressure cleaning Eastern Suburbs Melbourne",
+    heroImage: "/images/hero-pressure-cleaning.svg",
+    beforeImage: "/images/pressure-before.svg",
+    afterImage: "/images/pressure-after.svg",
+    beforeAlt: "dirty driveway before pressure cleaning Eastern Suburbs Melbourne",
+    afterAlt: "clean driveway after pressure cleaning Eastern Suburbs Melbourne",
     benefits: [
-      "Removes years of dirt, mould and mildew",
-      "Safer surfaces that are less slippery when wet",
-      "Boosts kerb appeal if you’re selling",
-      "Ideal for driveways, decks, paths, brickwork and more",
+      "Removes years of dirt, mould, mildew and oil staining",
+      "Safer outdoor surfaces that are less slippery when wet",
+      "Boosts kerb appeal if you’re selling in the eastern suburbs",
+      "Ideal for driveways, decks, paths, brickwork and exteriors",
+      "Dramatic before-and-after results without a renovation budget",
+      "Local, insured pressure cleaning with clear communication",
     ],
     process: [
       {
         step: "1",
         title: "Assess surfaces",
-        detail: "We match pressure and technique to concrete, timber, brick or paving.",
+        detail:
+          "We match pressure and technique to concrete, timber, brick or paving.",
       },
       {
         step: "2",
@@ -181,20 +282,30 @@ export const SERVICES = [
     ],
     faqs: [
       {
-        q: "What can you pressure clean?",
-        a: "Concrete paths and driveways, wooden decks and patios, eaves, housing exteriors, outdoor furniture, brickwork, pools surrounds and more.",
+        q: "What can you pressure clean in Eastern Suburbs Melbourne?",
+        a: "Concrete paths and driveways, wooden decks and patios, eaves, housing exteriors, outdoor furniture, brickwork, pool surrounds and more. Ask us if you’re unsure about a surface.",
       },
       {
         q: "Is pressure cleaning safe for all surfaces?",
-        a: "We adjust pressure and technique to suit each surface so timber, soft stone and delicate finishes are protected.",
+        a: "We adjust pressure and technique to suit each surface so timber, soft stone and delicate finishes are protected during professional pressure cleaning.",
       },
       {
-        q: "Will it help if I’m selling my home?",
-        a: "Yes. A clean driveway and exterior can add significant kerb appeal and help your home present at its best.",
+        q: "Will pressure cleaning help if I’m selling my home?",
+        a: "Yes. A clean driveway and exterior can add significant kerb appeal for buyers viewing eastern suburbs properties — often one of the highest-impact, lowest-cost presentation upgrades.",
+      },
+      {
+        q: "How messy is pressure cleaning?",
+        a: "There is water runoff during the job. We prepare the area carefully and leave outdoor spaces looking refreshed. We’ll explain what to expect when you book.",
+      },
+      {
+        q: "How do I get a free pressure cleaning quote?",
+        a: "Call 0433 230 310 or send your suburb and surface details via our contact form. Free quotes for pressure cleaning Eastern Suburbs Melbourne.",
       },
     ],
   },
 ] as const;
+
+export type ServiceSlug = (typeof SERVICES)[number]["slug"];
 
 export const TESTIMONIALS = [
   {
@@ -237,29 +348,5 @@ export const WHY_US = [
     title: "Clear communication",
     detail:
       "We ask what you need, confirm the scope, and deliver exactly that — and more.",
-  },
-] as const;
-
-export const BLOG_POSTS = [
-  {
-    slug: "how-often-clean-gutters-eastern-suburbs",
-    title: "How Often Should You Clean Gutters in Melbourne’s Eastern Suburbs?",
-    excerpt:
-      "Leafy streets mean beautiful homes — and busy gutters. A practical guide for Vermont South, Mount Waverley and beyond.",
-    date: "2026-03-12",
-  },
-  {
-    slug: "benefits-of-regular-window-cleaning",
-    title: "The Real Benefits of Regular Window Cleaning",
-    excerpt:
-      "More light, less dust, and a home that feels fresher — why eastern suburbs homeowners book seasonal window cleans.",
-    date: "2026-02-18",
-  },
-  {
-    slug: "pressure-cleaning-before-selling",
-    title: "Pressure Cleaning Before You Sell: Is It Worth It?",
-    excerpt:
-      "Driveways and exteriors sell first impressions. See how a pressure clean can lift kerb appeal without a big renovation budget.",
-    date: "2026-01-22",
   },
 ] as const;

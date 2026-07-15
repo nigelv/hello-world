@@ -29,3 +29,12 @@ Open [http://localhost:3000](http://localhost:3000).
 Connect this repository to Vercel. The default Next.js settings work with `vercel.json`.
 
 Set the production domain to `dynamiccleaningvic.com.au` in the Vercel project settings.
+
+### Analytics & Search Console
+
+Copy `.env.example` to `.env.local` (or set in Vercel):
+
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` — Google Analytics 4 ID
+- `NEXT_PUBLIC_GSC_VERIFICATION` — Google Search Console HTML tag verification value
+
+Update `SITE.googleBusinessUrl` in `src/lib/constants.ts` with your live Google Business Profile link when claimed.

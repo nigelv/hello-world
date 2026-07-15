@@ -3,21 +3,22 @@ import Link from "next/link";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { CTABanner } from "@/components/CTABanner";
 import { Hero } from "@/components/Hero";
+import { LocalPresence } from "@/components/LocalPresence";
 import { ServicesOverview } from "@/components/ServicesOverview";
 import { SuburbsList } from "@/components/SuburbsList";
 import { Testimonials } from "@/components/Testimonials";
 import { WhyUs } from "@/components/WhyUs";
-import { SITE } from "@/lib/constants";
+import { SERVICES, SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title:
-    "Window & Gutter Cleaning Eastern Suburbs Melbourne | Dynamic Cleaning VIC",
-  description:
-    "Call the best local window & gutter cleaner in Melbourne’s eastern suburbs for a free quote. Window, gutter and pressure cleaning — Dynamic Cleaning VIC.",
+  title: { absolute: SITE.defaultTitle },
+  description: SITE.defaultDescription,
   alternates: { canonical: SITE.url },
 };
 
 export default function HomePage() {
+  const pressure = SERVICES[2];
+
   return (
     <>
       <Hero />
@@ -39,9 +40,11 @@ export default function HomePage() {
           </div>
           <div className="mt-10">
             <BeforeAfter
-              beforeAlt="Dirty driveway and exterior surfaces before pressure cleaning in eastern Melbourne"
-              afterAlt="Freshly pressure cleaned driveway and exterior looking bright and new"
-              caption="Pressure cleaning before & after — dramatic kerb appeal for eastern suburbs homes."
+              beforeSrc={pressure.beforeImage}
+              afterSrc={pressure.afterImage}
+              beforeAlt={pressure.beforeAlt}
+              afterAlt={pressure.afterAlt}
+              caption="Pressure cleaning before & after — Eastern Suburbs Melbourne kerb appeal."
             />
           </div>
         </div>
@@ -50,7 +53,7 @@ export default function HomePage() {
       <WhyUs />
       <Testimonials />
 
-      <section className="bg-brand-mist py-16 sm:py-20">
+      <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SuburbsList />
           <p className="mt-8 text-sm text-brand-slate">
@@ -63,6 +66,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <LocalPresence />
       <CTABanner />
     </>
   );
