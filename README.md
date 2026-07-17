@@ -43,10 +43,18 @@ Seed includes 24 contacts, 12 deals across stages, activities, notes, and tags.
 | `npm run db:seed` | Seed realistic demo data |
 | `npm run db:studio` | Prisma Studio |
 
+## Auth (slice 1)
+
+- **Sign up** at `/signup` — creates user + workspace + default pipeline stages
+- **Sign in** at `/login` — email/password via NextAuth
+- **Invite** at Settings → Members — admins create a copyable invite link (no email delivery yet)
+- **Accept** at `/invite/[token]` — new users set name/password; existing users confirm password
+- App routes are protected by middleware; session includes `workspaceId` / role
+
 ## Build order
 
-1. ~~Scaffold + schema~~ (this PR)
-2. Auth & workspace setup
+1. ~~Scaffold + schema~~
+2. ~~Auth & workspace setup~~
 3. Contacts CRUD
 4. Contact detail (timeline / notes / deals)
 5. Deals Kanban (`@dnd-kit`)

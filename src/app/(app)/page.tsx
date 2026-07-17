@@ -1,27 +1,29 @@
 import Link from "next/link";
+import { getCurrentSession } from "@/lib/workspace";
 import { Button } from "@/components/ui/button";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const session = await getCurrentSession();
+
   return (
     <div className="space-y-8">
       <header className="space-y-2">
         <p className="text-sm font-medium uppercase tracking-wider text-primary">
-          Scaffold ready
+          {session?.user?.workspaceName || "Workspace"}
         </p>
         <h1 className="font-display text-4xl font-semibold tracking-tight text-foreground">
-          PulseCRM
+          Welcome{session?.user?.name ? `, ${session.user.name.split(" ")[0]}` : ""}
         </h1>
         <p className="max-w-xl text-muted-foreground">
-          Lightweight CRM scaffold is up. Next vertical slice: auth &amp; workspace
-          setup, then contacts.
+          Auth and workspace invites are live. Next up: contacts list with quick-add.
         </p>
       </header>
 
       <section className="grid gap-4 sm:grid-cols-3">
         {[
-          { label: "Contacts", href: "/contacts", blurb: "List + quick-add next" },
-          { label: "Deals", href: "/deals", blurb: "Kanban pipeline later" },
-          { label: "Tasks", href: "/tasks", blurb: "My Tasks view later" },
+          { label: "Contacts", href: "/contacts", blurb: "Next vertical slice" },
+          { label: "Members", href: "/settings/members", blurb: "Invite teammates" },
+          { label: "Workspace", href: "/settings/workspace", blurb: "Rename your team" },
         ].map((item) => (
           <Link
             key={item.href}
@@ -34,14 +36,9 @@ export default function DashboardPage() {
         ))}
       </section>
 
-      <div className="flex flex-wrap gap-3">
-        <Button asChild>
-          <Link href="/login">Open login (stub)</Link>
-        </Button>
-        <Button variant="outline" asChild>
-          <Link href="/signup">Open signup (stub)</Link>
-        </Button>
-      </div>
+      <Button variant="outline" asChild>
+        <Link href="/settings/members">Invite a teammate</Link>
+      </Button>
     </div>
   );
 }

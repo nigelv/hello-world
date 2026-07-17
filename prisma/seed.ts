@@ -1,16 +1,10 @@
 import { PrismaClient, ActivityType, WorkspaceRole } from "@prisma/client";
 import { hash } from "bcryptjs";
+import { DEFAULT_PIPELINE_STAGES } from "../src/lib/constants";
 
 const prisma = new PrismaClient();
 
-const DEFAULT_STAGES = [
-  { name: "Lead", position: 0, color: "#94a3b8", isWon: false, isLost: false },
-  { name: "Qualified", position: 1, color: "#38bdf8", isWon: false, isLost: false },
-  { name: "Proposal", position: 2, color: "#a78bfa", isWon: false, isLost: false },
-  { name: "Negotiation", position: 3, color: "#fbbf24", isWon: false, isLost: false },
-  { name: "Won", position: 4, color: "#34d399", isWon: true, isLost: false },
-  { name: "Lost", position: 5, color: "#f87171", isWon: false, isLost: true },
-];
+const DEFAULT_STAGES = DEFAULT_PIPELINE_STAGES;
 
 const COMPANIES = [
   { name: "Northwind Labs", domain: "northwindlabs.com", industry: "SaaS", size: "11-50" },
@@ -100,7 +94,7 @@ async function main() {
         ],
       },
       stages: {
-        create: DEFAULT_STAGES,
+        create: DEFAULT_STAGES.map((stage) => ({ ...stage })),
       },
     },
     include: { stages: { orderBy: { position: "asc" } } },
