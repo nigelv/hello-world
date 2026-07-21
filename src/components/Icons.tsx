@@ -53,6 +53,18 @@ export function PressureIcon(props: IconProps) {
   );
 }
 
+export function SolarIcon(props: IconProps) {
+  const { title, ...rest } = props;
+  return (
+    <svg {...baseProps(props)} {...rest}>
+      {title ? <title>{title}</title> : null}
+      <rect x="3" y="8" width="18" height="10" rx="1" />
+      <path d="M3 13h18M9 8V5M15 8V5" />
+      <path d="M12 18v3" />
+    </svg>
+  );
+}
+
 export function PhoneIcon(props: IconProps) {
   const { title, ...rest } = props;
   return (

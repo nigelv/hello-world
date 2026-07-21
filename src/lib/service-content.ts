@@ -85,7 +85,32 @@ export const SERVICE_ARTICLES: Record<ServiceSlug, ServiceArticle> = {
       "From oil-spotted driveways in Doncaster to mossy southern paths in Kew and weathered decks in Hawthorn, eastern suburbs homes benefit from periodic pressure cleaning. We work methodically: assess, prepare, clean, and reveal. You’ll see the result as soon as the surface dries — brighter concrete, cleaner brick joints, and outdoor zones that feel usable again.",
       "Bookings are straightforward. Request a free quote by phone or contact form, confirm the scope (driveway only, full exterior hard surfaces, deck plus paths, etc.), and choose a suitable time. We arrive prepared, minimise disruption, and leave outdoor areas looking refreshed. If you’re coordinating with real estate photography or an open for inspection, tell us your deadline and we’ll try to schedule accordingly.",
       "Fast-loading, mobile-friendly booking starts on this website — but the fastest path to a quote is still a call to 0433 230 310. We’re local, reliable and focused on Eastern Suburbs Melbourne pressure cleaning done properly.",
-      "Explore our window and gutter services too if you want a complete property clean. Dynamic Cleaning VIC helps homeowners maintain the integrity and presentation of their homes with clear quotes, careful workmanship and lasting local relationships.",
+      "Explore our window, gutter and solar services too if you want a complete property clean. Dynamic Cleaning VIC helps homeowners maintain the integrity and presentation of their homes with clear quotes, careful workmanship and lasting local relationships.",
+    ],
+  },
+  "solar-panel-cleaning": {
+    slug: "solar-panel-cleaning",
+    h2Intro: "Solar panel cleaning Eastern Suburbs Melbourne — protect your power output",
+    paragraphs: [
+      "Now that the sun is hitting harder again, it’s time to clean off persistent red dust and fire up your solar panels. Dynamic Cleaning VIC provides professional solar panel cleaning Eastern Suburbs Melbourne for homeowners who want their system working as designed — not slowly losing output to grime you can’t see from the ground.",
+      "Solar panels can lose around 20% of their efficiency if they are covered in dirt (as noted by industry bodies such as the Solar Energy Power Association). In Melbourne, dust has become part of the rain for many households — and dirt has a tendency to attract more dirt, which is why you get build-ups on roof arrays over time.",
+      "One way to make your solar panels work more effectively and last longer is to have them regularly cleaned. At Dynamic Cleaning, we use water-fed poles to access even those tricky-to-reach panels, so you’re not balancing on ladders wondering if you’re doing more harm than good.",
+      "Often people don’t think twice about their solar panels once they are installed — until something goes wrong or the power bill creeps up. Having them cleaned annually (or more often if required) ensures the investment you made remains an investment and not a liability.",
+    ],
+    h2Keywords:
+      "Why eastern suburbs homeowners book solar panel cleaning before summer",
+    keywordParagraphs: [
+      "Eastern Suburbs Melbourne homes with north-facing arrays in Vermont South, Mount Waverley, Glen Waverley and Wheelers Hill see strong seasonal sun — but only if the glass surface is clear. Pollen, urban dust, bushfire haze residue and general grime mute output quietly. A professional clean is one of the simplest maintenance jobs with a measurable payoff.",
+      "Search for solar panel cleaning Eastern Suburbs Melbourne and you’ll find mixed advice about chemicals and pressure. Our approach focuses on appropriate pure-water washing via water-fed poles, careful access, and a finish that helps panels sparkle and do what they do best: create power. We’re fully insured and communicate clearly before we start.",
+      "Many clients combine solar panel cleaning with window cleaning or gutter cleaning on the same visit — especially after autumn leaf fall or before a hot summer. One local team, one quote, and a satisfaction guarantee if anything isn’t right.",
+      "Dynamic Cleaning VIC is a local family business: punctual, respectful and focused on eastern suburbs homes. Call 0433 230 310 for a free solar panel cleaning quote — tell us your suburb, array size and access notes.",
+    ],
+    h2Why: "What to expect from our solar panel cleaning service",
+    whyParagraphs: [
+      "We assess safe access and your panel layout before we begin. Using water-fed poles, we wash away built-up dust and grime without harsh abrasion that can damage coatings. The goal is a clean surface that lets sunlight through efficiently — you should notice panels looking clear and performing confidently through peak sun.",
+      "If your panels are on a two-storey roof or set back from easy ladder points, professional equipment matters. We’ve built our service around reaching those awkward arrays common on eastern suburbs homes without asking you to take risks on the roof.",
+      "Book annually as a baseline, or sooner if you see visible dust, bird mess, or you suspect output has dropped after storms or construction nearby. We’ll confirm timing and quote upfront.",
+      "At Dynamic Cleaning, we can make your solar panels sparkle and help them do what they do best — create power. Call Dynamic Cleaning for a free quote today on 0433 230 310, or request a quote online with your suburb and service selected.",
     ],
   },
 };

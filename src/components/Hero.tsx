@@ -33,11 +33,11 @@ export function Hero() {
           {SITE.brandLine}
         </p>
         <h1 className="mt-5 max-w-2xl animate-rise text-xl font-medium leading-snug text-white/95 sm:text-2xl md:text-[1.7rem] [animation-delay:80ms]">
-          Window, gutter &amp; pressure cleaning for Eastern Suburbs Melbourne
+          Window, gutter, pressure &amp; solar cleaning for Eastern Suburbs Melbourne
         </h1>
         <p className="mt-4 max-w-xl animate-rise text-base leading-relaxed text-white/80 sm:text-lg [animation-delay:140ms]">
-          Crystal-clear windows, protected gutters and restored exteriors —
-          book a free quote with a local, insured cleaner.
+          Crystal-clear windows, protected gutters, restored exteriors and cleaner
+          solar panels — book a free quote with a local, insured cleaner.
         </p>
         <div className="mt-8 flex animate-rise flex-col gap-3 sm:flex-row sm:items-center [animation-delay:200ms]">
           <a

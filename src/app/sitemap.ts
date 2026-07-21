@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/window-cleaning",
     "/services/gutter-cleaning",
     "/services/pressure-cleaning",
+    "/services/solar-panel-cleaning",
     "/about",
     "/contact",
     "/blog",

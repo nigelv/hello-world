@@ -323,6 +323,78 @@ export const SERVICES = [
       },
     ],
   },
+  {
+    slug: "solar-panel-cleaning",
+    title: "Solar Panel Cleaning",
+    shortTitle: "Solar",
+    href: "/services/solar-panel-cleaning",
+    description:
+      "Solar panel cleaning Eastern Suburbs Melbourne — remove dust and grime so your panels produce more power. Water-fed pole access for hard-to-reach roofs.",
+    imageAlt: "solar panel cleaning Eastern Suburbs Melbourne",
+    heroImage: "/images/photos/solar-hero.jpg",
+    beforeImage: "/images/photos/solar-before.jpg",
+    afterImage: "/images/photos/solar-after.jpg",
+    beforeAlt:
+      "dusty solar panels before solar panel cleaning Eastern Suburbs Melbourne",
+    afterAlt:
+      "clean solar panels after solar panel cleaning Eastern Suburbs Melbourne",
+    benefits: [
+      "Help panels work more effectively after Melbourne dust and grime build-up",
+      "Panels can lose around 20% efficiency when covered in dirt — cleaning protects output",
+      "Water-fed poles reach tricky roof-mounted panels safely",
+      "Annual cleans (or more often) keep your solar investment performing",
+      "Ideal before summer sun across Vermont South, Mount Waverley and surrounds",
+      "Fully insured local service with a satisfaction guarantee",
+    ],
+    process: [
+      {
+        step: "1",
+        title: "Free quote",
+        detail:
+          "Tell us about your array size, roof access and suburb — we provide a clear quote.",
+      },
+      {
+        step: "2",
+        title: "Book a time",
+        detail:
+          "We schedule around weather and your home, with punctual arrival.",
+      },
+      {
+        step: "3",
+        title: "Gentle clean",
+        detail:
+          "We use water-fed poles to wash panels and lift persistent red dust and build-up.",
+      },
+      {
+        step: "4",
+        title: "Power-ready finish",
+        detail:
+          "Sparkling panels ready to do what they do best — create power.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Why should I get solar panels cleaned in Melbourne?",
+        a: "Solar panels can lose around 20% of their efficiency when covered in dirt. Melbourne’s dust and grime in rain can build up on panels; dirt also attracts more dirt over time. Regular cleaning helps your system work more effectively and last longer.",
+      },
+      {
+        q: "How often should solar panels be cleaned?",
+        a: "Many eastern suburbs homes benefit from an annual solar panel clean, or more often if you notice heavy dust, pollen, bird droppings or reduced output. Dynamic Cleaning VIC can advise when you book.",
+      },
+      {
+        q: "How do you access panels on my roof?",
+        a: "We use water-fed poles to access even tricky-to-reach panels, reducing the need for risky DIY ladder work on your roof.",
+      },
+      {
+        q: "Do you service solar panel cleaning across the eastern suburbs?",
+        a: "Yes — we clean solar panels across Eastern Suburbs Melbourne including Vermont South, Mount Waverley, Glen Waverley, Wheelers Hill, Box Hill and surrounding suburbs.",
+      },
+      {
+        q: "How do I get a free solar panel cleaning quote?",
+        a: "Call 0433 230 310 or use our contact form with your suburb and panel details. We’ll provide a free quote for solar panel cleaning Eastern Suburbs Melbourne.",
+      },
+    ],
+  },
 ] as const;
 
 export type ServiceSlug = (typeof SERVICES)[number]["slug"];

@@ -5,22 +5,25 @@ import {
   ArrowRightIcon,
   GutterIcon,
   PressureIcon,
+  SolarIcon,
   WindowIcon,
 } from "@/components/Icons";
 import { SERVICES, SITE } from "@/lib/constants";
+import type { ServiceSlug } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Window, Gutter & Pressure Cleaning Services Eastern Suburbs",
+  title: "Window, Gutter, Pressure & Solar Cleaning Services Eastern Suburbs",
   description:
-    "Explore Dynamic Cleaning VIC services: professional window cleaning, gutter cleaning and pressure cleaning across Melbourne’s eastern suburbs.",
+    "Explore Dynamic Cleaning VIC services: window, gutter, pressure and solar panel cleaning across Melbourne’s eastern suburbs.",
   alternates: { canonical: `${SITE.url}/services` },
 };
 
-const ICONS = {
+const ICONS: Record<ServiceSlug, typeof WindowIcon> = {
   "window-cleaning": WindowIcon,
   "gutter-cleaning": GutterIcon,
   "pressure-cleaning": PressureIcon,
-} as const;
+  "solar-panel-cleaning": SolarIcon,
+};
 
 export default function ServicesPage() {
   return (
@@ -31,10 +34,10 @@ export default function ServicesPage() {
             Our services
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
-            Window, gutter &amp; pressure cleaning for eastern suburbs homes
+            Window, gutter, pressure &amp; solar cleaning for eastern suburbs homes
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-            Three focused services, one reliable local team. Choose what you need
+            Four focused services, one reliable local team. Choose what you need
             — or combine them for a complete property refresh.
           </p>
         </div>

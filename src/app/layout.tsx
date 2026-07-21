@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     "window cleaning Eastern Suburbs Melbourne",
     "gutter cleaning Eastern Suburbs Melbourne",
     "pressure cleaning Eastern Suburbs Melbourne",
+    "solar panel cleaning Eastern Suburbs Melbourne",
     "gutter cleaning Vermont South",
     "gutter cleaning Mount Waverley",
     "window cleaner Glen Waverley",

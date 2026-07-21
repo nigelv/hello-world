@@ -1,18 +1,27 @@
 import Link from "next/link";
 import { SERVICES, SITE } from "@/lib/constants";
-import { ArrowRightIcon, GutterIcon, PressureIcon, WindowIcon } from "./Icons";
+import type { ServiceSlug } from "@/lib/constants";
+import {
+  ArrowRightIcon,
+  GutterIcon,
+  PressureIcon,
+  SolarIcon,
+  WindowIcon,
+} from "./Icons";
 
-const ICONS = {
+const ICONS: Record<ServiceSlug, typeof WindowIcon> = {
   "window-cleaning": WindowIcon,
   "gutter-cleaning": GutterIcon,
   "pressure-cleaning": PressureIcon,
-} as const;
+  "solar-panel-cleaning": SolarIcon,
+};
 
-const ONE_LINERS = {
+const ONE_LINERS: Record<ServiceSlug, string> = {
   "window-cleaning": "Brighter rooms, streak-free glass — free quote.",
   "gutter-cleaning": "Clear leaf build-up before the next downpour.",
   "pressure-cleaning": "Restore driveways and exteriors fast.",
-} as const;
+  "solar-panel-cleaning": "Clear dust so panels produce more power.",
+};
 
 export function ServicesOverview() {
   return (
@@ -24,11 +33,11 @@ export function ServicesOverview() {
               id="services-heading"
               className="font-display text-3xl font-semibold tracking-tight text-brand-navy sm:text-4xl"
             >
-              Three services. One local team.
+              Four services. One local team.
             </h2>
             <p className="mt-3 text-base leading-relaxed text-brand-slate sm:text-lg">
-              Window, gutter and pressure cleaning for eastern suburbs homes —
-              done properly.
+              Window, gutter, pressure and solar panel cleaning for eastern
+              suburbs homes — done properly.
             </p>
           </div>
           <a
@@ -39,7 +48,7 @@ export function ServicesOverview() {
           </a>
         </div>
 
-        <ul className="mt-10 grid gap-8 md:grid-cols-3">
+        <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((service) => {
             const Icon = ICONS[service.slug];
             return (
