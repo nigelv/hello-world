@@ -81,12 +81,12 @@ export default function ContactPage() {
             </address>
           </div>
 
-          <div className="bg-brand-mist p-6 sm:p-8">
+          <div id="quote" className="scroll-mt-24 bg-brand-mist p-6 sm:p-8">
             <h2 className="font-display text-2xl font-semibold text-brand-navy">
               Request a free quote
             </h2>
             <p className="mt-2 text-sm text-brand-slate">
-              Tell us your suburb and the service you need — we&apos;ll follow up promptly.
+              Choose your suburb and service — we&apos;ll call you back promptly.
             </p>
             <div className="mt-6">
               <ContactForm />

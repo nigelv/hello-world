@@ -4,6 +4,7 @@ import { Analytics, analyticsVerification } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { Navbar } from "@/components/Navbar";
+import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { SITE } from "@/lib/constants";
 import { localBusinessSchema } from "@/lib/schema";
 import "./globals.css";
@@ -47,9 +48,9 @@ export const metadata: Metadata = {
     description: SITE.defaultDescription,
     images: [
       {
-        url: "/images/hero-window-cleaning.svg",
+        url: "/images/photos/hero-window.jpg",
         width: 1600,
-        height: 900,
+        height: 1067,
         alt: "window cleaning Eastern Suburbs Melbourne",
       },
     ],
@@ -82,7 +83,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-AU" className={`${display.variable} ${body.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">
+      <body className="min-h-full flex flex-col antialiased pb-[4.5rem] md:pb-0">
         <Analytics />
         <JsonLd data={localBusinessSchema()} />
         <a
@@ -96,6 +97,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <StickyMobileCTA />
       </body>
     </html>
   );

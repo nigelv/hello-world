@@ -11,7 +11,7 @@ export function localBusinessSchema() {
     url: SITE.url,
     telephone: SITE.phone,
     email: SITE.email,
-    image: `${SITE.url}/images/hero-window-cleaning.svg`,
+    image: `${SITE.url}/images/photos/hero-window.jpg`,
     priceRange: "$$",
     sameAs: [SITE.googleBusinessUrl],
     areaServed: SUBURBS.map((suburb) => ({

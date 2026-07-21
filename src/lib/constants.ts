@@ -26,12 +26,15 @@ export const SITE = {
   mapsEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.4!2d145.152!3d-37.857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad643c3c6e6e6e7%3A0x0!2sMount%20Waverley%20VIC!5e0!3m2!1sen!2sau!4v1700000000000",
   tagline: "Friendly, local, professional window and gutter cleaning",
+  /** Short brand line under logo — keep consistent across site & marketing */
+  brandLine: "Eastern suburbs. Done properly.",
   defaultTitle:
     "Window Gutter Pressure Cleaning Eastern Suburbs Melbourne | Dynamic Cleaning VIC",
   defaultDescription:
     "Professional local window, gutter & pressure cleaning Eastern Melbourne suburbs. Free quotes. Call 0433 230 310.",
   guarantee:
     "If you are not satisfied with the job done, we will come back and fix it until you are.",
+  trustStrip: ["Fully insured", "Local eastern suburbs", "Satisfaction guarantee"] as const,
 } as const;
 
 export const SUBURBS = [
@@ -59,10 +62,27 @@ export const SUBURBS = [
 
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
+  { href: "/services", label: "Services", hasDropdown: true },
   { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
+] as const;
+
+export const NEXT_STEPS = [
+  {
+    step: "1",
+    title: "Call or request a quote",
+    detail: "Tell us your suburb and what you need cleaned.",
+  },
+  {
+    step: "2",
+    title: "Get a clear free quote",
+    detail: "No obligation — we confirm scope and timing upfront.",
+  },
+  {
+    step: "3",
+    title: "We book & deliver",
+    detail: "Punctual, careful work with a satisfaction guarantee.",
+  },
 ] as const;
 
 export const CITATIONS = [
@@ -107,9 +127,9 @@ export const SERVICES = [
     description:
       "Professional window cleaning Eastern Suburbs Melbourne — streak-free glass, flyscreens, mirrors and frames for brighter homes.",
     imageAlt: "window cleaning Eastern Suburbs Melbourne",
-    heroImage: "/images/hero-window-cleaning.svg",
-    beforeImage: "/images/window-before.svg",
-    afterImage: "/images/window-after.svg",
+    heroImage: "/images/photos/hero-window.jpg",
+    beforeImage: "/images/photos/window-before.jpg",
+    afterImage: "/images/photos/window-after.jpg",
     beforeAlt: "dirty windows before window cleaning Eastern Suburbs Melbourne",
     afterAlt: "sparkling clean windows after window cleaning Eastern Suburbs Melbourne",
     benefits: [
@@ -176,9 +196,9 @@ export const SERVICES = [
     description:
       "Gutter cleaning Eastern Suburbs Melbourne — clear leaves, protect roofs and prevent water damage in leafy suburbs like Vermont South and Mount Waverley.",
     imageAlt: "gutter cleaning Eastern Suburbs Melbourne",
-    heroImage: "/images/hero-gutter-cleaning.svg",
-    beforeImage: "/images/gutter-before.svg",
-    afterImage: "/images/gutter-after.svg",
+    heroImage: "/images/photos/gutter-before.jpg",
+    beforeImage: "/images/photos/gutter-before.jpg",
+    afterImage: "/images/photos/gutter-after.jpg",
     beforeAlt: "blocked gutters full of leaves before gutter cleaning Eastern Suburbs Melbourne",
     afterAlt: "clear flowing gutters after gutter cleaning Eastern Suburbs Melbourne",
     benefits: [
@@ -244,9 +264,9 @@ export const SERVICES = [
     description:
       "Pressure cleaning Eastern Suburbs Melbourne — restore driveways, decks, paths and exteriors for safer, fresher kerb appeal.",
     imageAlt: "pressure cleaning Eastern Suburbs Melbourne",
-    heroImage: "/images/hero-pressure-cleaning.svg",
-    beforeImage: "/images/pressure-before.svg",
-    afterImage: "/images/pressure-after.svg",
+    heroImage: "/images/photos/pressure-before.jpg",
+    beforeImage: "/images/photos/pressure-before.jpg",
+    afterImage: "/images/photos/pressure-after.jpg",
     beforeAlt: "dirty driveway before pressure cleaning Eastern Suburbs Melbourne",
     afterAlt: "clean driveway after pressure cleaning Eastern Suburbs Melbourne",
     benefits: [
@@ -313,18 +333,21 @@ export const TESTIMONIALS = [
       "I was very impressed. Nigel did all the window cleaning and a houseful of chandeliers. Wonderful work and eager to please. Highly recommended.",
     name: "JH",
     area: "Eastern Suburbs",
+    service: "Window cleaning",
   },
   {
     quote:
       "We have been very happy having Dynamic Cleaning to do the various jobs around our house. Nigel has attended to the work and he has been very punctual, efficient and I feel very comfortable with having him work in our home. I have recommended him to other neighbours in our area.",
     name: "HS",
     area: "Eastern Suburbs",
+    service: "Windows & gutters",
   },
   {
     quote:
       "Local, reliable and thorough. Gutters and windows done in one visit — our place looks so much brighter. Easy to book and great communication.",
     name: "MR",
     area: "Mount Waverley",
+    service: "Windows & gutters",
   },
 ] as const;
 

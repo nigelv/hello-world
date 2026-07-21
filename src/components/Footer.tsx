@@ -7,10 +7,21 @@ export function Footer() {
     <footer className="mt-auto border-t border-brand-navy/10 bg-brand-navy text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-1">
-          <p className="font-display text-xl font-semibold">
-            Dynamic Cleaning <span className="text-brand-mint">VIC</span>
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-white/75">
+          <div className="flex items-center gap-2.5">
+            <span
+              className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-teal font-display text-sm font-bold text-white"
+              aria-hidden="true"
+            >
+              DC
+            </span>
+            <div>
+              <p className="font-display text-lg font-semibold leading-tight">
+                Dynamic Cleaning <span className="text-brand-mint">VIC</span>
+              </p>
+              <p className="text-xs text-white/65">{SITE.brandLine}</p>
+            </div>
+          </div>
+          <p className="mt-4 text-sm leading-relaxed text-white/75">
             {SITE.tagline}. Window, gutter and pressure cleaning across{" "}
             {SITE.area}.
           </p>
@@ -45,6 +56,16 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/blog" className="hover:text-white">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact#quote" className="hover:text-white">
+                Free quote
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -89,7 +110,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.
           </p>
-          <p>Local · Reliable · Fully insured</p>
+          <p>Call · Quote · Booked</p>
         </div>
       </div>
     </footer>

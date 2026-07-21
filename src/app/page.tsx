@@ -3,12 +3,11 @@ import Link from "next/link";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { CTABanner } from "@/components/CTABanner";
 import { Hero } from "@/components/Hero";
-import { LocalPresence } from "@/components/LocalPresence";
+import { NextSteps } from "@/components/NextSteps";
 import { ServicesOverview } from "@/components/ServicesOverview";
-import { SuburbsList } from "@/components/SuburbsList";
 import { Testimonials } from "@/components/Testimonials";
 import { WhyUs } from "@/components/WhyUs";
-import { SERVICES, SITE } from "@/lib/constants";
+import { SERVICES, SITE, SUBURBS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: { absolute: SITE.defaultTitle },
@@ -23,8 +22,9 @@ export default function HomePage() {
     <>
       <Hero />
       <ServicesOverview />
+      <NextSteps />
 
-      <section className="bg-brand-mist py-16 sm:py-20" aria-labelledby="results-heading">
+      <section className="bg-brand-mist py-14 sm:py-16" aria-labelledby="results-heading">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <h2
@@ -34,17 +34,17 @@ export default function HomePage() {
               Results you can see
             </h2>
             <p className="mt-3 text-base leading-relaxed text-brand-slate sm:text-lg">
-              From streak-free glass to cleared gutters and refreshed driveways —
-              a professional clean transforms how your home looks and feels.
+              Real property photography — pressure cleaning that lifts kerb appeal
+              across Eastern Suburbs Melbourne.
             </p>
           </div>
-          <div className="mt-10">
+          <div className="mt-8">
             <BeforeAfter
               beforeSrc={pressure.beforeImage}
               afterSrc={pressure.afterImage}
               beforeAlt={pressure.beforeAlt}
               afterAlt={pressure.afterAlt}
-              caption="Pressure cleaning before & after — Eastern Suburbs Melbourne kerb appeal."
+              caption="Before & after — Eastern Suburbs Melbourne."
             />
           </div>
         </div>
@@ -53,20 +53,25 @@ export default function HomePage() {
       <WhyUs />
       <Testimonials />
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="border-t border-brand-navy/10 bg-white py-10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <SuburbsList />
-          <p className="mt-8 text-sm text-brand-slate">
-            Not sure if we cover your street?{" "}
-            <Link href="/contact" className="font-semibold text-brand-teal hover:underline">
-              Get in touch
+          <h2 className="font-display text-xl font-semibold text-brand-navy">
+            Serving Eastern Suburbs Melbourne
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-brand-slate sm:text-base">
+            {SUBURBS.slice(0, 10).join(", ")} and surrounds.{" "}
+            <Link href="/contact#quote" className="font-semibold text-brand-teal hover:underline">
+              Get a free quote
             </Link>{" "}
-            — we&apos;re happy to help.
+            or call{" "}
+            <a href={SITE.phoneHref} className="font-semibold text-brand-teal hover:underline">
+              {SITE.phone}
+            </a>
+            .
           </p>
         </div>
       </section>
 
-      <LocalPresence />
       <CTABanner />
     </>
   );
