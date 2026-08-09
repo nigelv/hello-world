@@ -9,14 +9,14 @@ export function Hero() {
     <section className="relative isolate min-h-[min(88vh,720px)] overflow-hidden">
       <Image
         src="/images/photos/hero-window.jpg"
-        alt="window cleaning Eastern Suburbs Melbourne"
+        alt="Professional window cleaner using a squeegee and washer on a residential window, Eastern Suburbs Melbourne"
         fill
         priority
-        className="object-cover"
+        className="object-cover object-[68%_center]"
         sizes="100vw"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-br from-brand-navy/92 via-brand-blue/78 to-brand-teal/55"
+        className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/70 to-brand-teal/35"
         aria-hidden="true"
       />
       <div
