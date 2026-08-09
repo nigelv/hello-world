@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     description: SITE.defaultDescription,
     images: [
       {
-        url: "/images/photos/hero-window.jpg",
-        width: 1600,
-        height: 1067,
-        alt: "window cleaning Eastern Suburbs Melbourne",
+        url: "/images/photos/hero-window-cleaner.jpg",
+        width: 1536,
+        height: 1024,
+        alt: "Professional window cleaner using a squeegee on a residential window, Eastern Suburbs Melbourne",
       },
     ],
   },

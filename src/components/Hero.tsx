@@ -8,19 +8,19 @@ export function Hero() {
   return (
     <section className="relative isolate min-h-[min(88vh,720px)] overflow-hidden">
       <Image
-        src="/images/photos/hero-window.jpg"
+        src="/images/photos/hero-window-cleaner.jpg"
         alt="Professional window cleaner using a squeegee and washer on a residential window, Eastern Suburbs Melbourne"
         fill
         priority
-        className="object-cover object-[68%_center]"
+        className="object-cover object-[72%_center] sm:object-[68%_center]"
         sizes="100vw"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/70 to-brand-teal/35"
+        className="absolute inset-0 bg-gradient-to-r from-brand-navy/88 via-brand-navy/55 to-transparent"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-brand-mint/20 blur-3xl animate-float"
+        className="absolute inset-0 bg-gradient-to-t from-brand-navy/50 via-transparent to-brand-navy/20"
         aria-hidden="true"
       />
 

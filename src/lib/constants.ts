@@ -127,7 +127,7 @@ export const SERVICES = [
     description:
       "Professional window cleaning Eastern Suburbs Melbourne — streak-free glass, flyscreens, mirrors and frames for brighter homes.",
     imageAlt: "window cleaning Eastern Suburbs Melbourne",
-    heroImage: "/images/photos/hero-window.jpg",
+    heroImage: "/images/photos/hero-window-cleaner.jpg",
     beforeImage: "/images/photos/window-before.jpg",
     afterImage: "/images/photos/window-after.jpg",
     beforeAlt: "dirty windows before window cleaning Eastern Suburbs Melbourne",
