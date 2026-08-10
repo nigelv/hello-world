@@ -1,50 +1,132 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap");
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --brand-navy: #0a3d5c;
+  --brand-blue: #1a6f8f;
+  --brand-teal: #0d7a72;
+  --brand-teal-dark: #0a5f59;
+  --brand-mint: #9fe0d4;
+  --brand-mist: #eef6f5;
+  --brand-slate: #4a5d66;
+  --background: #fbfcfc;
+  --foreground: #0a3d5c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-teal-dark: var(--brand-teal-dark);
+  --color-brand-mint: var(--brand-mint);
+  --color-brand-mist: var(--brand-mist);
+  --color-brand-slate: var(--brand-slate);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
 
 @layer base {
-  :root {
-    --background: 40 33% 98%;
-    --foreground: 210 24% 12%;
-    --card: 0 0% 100%;
-    --card-foreground: 210 24% 12%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 24% 12%;
-    --primary: 174 58% 32%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 20% 94%;
-    --secondary-foreground: 210 24% 16%;
-    --muted: 40 16% 93%;
-    --muted-foreground: 210 10% 42%;
-    --accent: 174 30% 92%;
-    --accent-foreground: 174 58% 22%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 40 14% 88%;
-    --input: 40 14% 88%;
-    --ring: 174 58% 32%;
-    --sidebar: 40 28% 96%;
-    --radius: 0.5rem;
-  }
-
-  * {
-    @apply border-border;
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 10% -10%, hsl(174 40% 90% / 0.7), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 0%, hsl(40 50% 92% / 0.8), transparent);
-    min-height: 100vh;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--brand-teal) 28%, white);
+    color: var(--brand-navy);
   }
 }
 
 @layer utilities {
-  .font-display {
-    font-family: "Fraunces", ui-serif, Georgia, serif;
+  .bg-hero-scene {
+    background-image:
+      linear-gradient(120deg, rgba(10, 61, 92, 0.15), transparent 45%),
+      radial-gradient(ellipse at 70% 30%, rgba(159, 224, 212, 0.35), transparent 50%),
+      linear-gradient(160deg, #c5e4e8 0%, #8ebfc8 35%, #4a8fa0 70%, #1a5f72 100%);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-before-placeholder {
+    background-image:
+      linear-gradient(135deg, rgba(74, 93, 102, 0.45), rgba(10, 61, 92, 0.55)),
+      repeating-linear-gradient(
+        -12deg,
+        #6b7c85 0 12px,
+        #5a6b74 12px 24px
+      );
+  }
+
+  .bg-after-placeholder {
+    background-image:
+      linear-gradient(145deg, rgba(159, 224, 212, 0.25), rgba(13, 122, 114, 0.15)),
+      linear-gradient(160deg, #e8f7f4 0%, #b8e4dc 40%, #6fc4b8 100%);
+  }
+
+  .animate-rise {
+    animation: rise 0.7s ease-out both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.25s ease-out both;
+  }
+
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-rise,
+  .animate-fade-in,
+  .animate-float {
+    animation: none !important;
   }
 }
