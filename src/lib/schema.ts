@@ -17,7 +17,6 @@ export function localBusinessSchema() {
     telephone: SITE.phone,
     email: SITE.email,
     image: `${SITE.url}/images/hero-window-cleaning.jpg`,
-    priceRange: "$$",
     areaServed: areaServed.map((name) => ({ "@type": "Place", name })),
     address: {
       "@type": "PostalAddress",

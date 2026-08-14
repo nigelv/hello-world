@@ -47,9 +47,8 @@ export default function AreaSuburbPage({ params }: { params: Params }) {
         </p>
         <p className="mt-4 text-base leading-relaxed text-muted-foreground">
           Searching for window cleaning near me or gutter cleaning near me in{" "}
-          {suburb}? Call {SITE.phone} for a free, no-obligation quote. Standard
-          single-storey window cleans start from $180. Typical 3–4 bedroom
-          gutter cleans start from $220.
+          {suburb}? Call {SITE.phone} for a free, no-obligation quote on
+          windows, gutters, or both.
         </p>
         <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
           <Link href={`/window-cleaning/${params.suburb}`} className="text-primary hover:underline">

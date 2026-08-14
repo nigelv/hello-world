@@ -176,9 +176,9 @@ export default function WindowCleaningPage() {
               Pricing guide (competitive &amp; transparent)
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Standard single-storey home from $180. Two-storey from $280.
-              Add-ons for screens, sills, or hard water spots. Free on-site
-              quotes. No hidden fees. Prices vary with access, pane count and
+              Free on-site quotes for single-storey and two-storey homes.
+              Add-ons for screens, sills, or hard water spots are priced before
+              we start. No hidden fees. Quotes vary with access, pane count and
               how long it has been since the last professional clean — we would
               rather tell you that on the phone than surprise you on the day.
             </p>
@@ -194,14 +194,16 @@ export default function WindowCleaningPage() {
           </div>
           <div className="rounded-2xl border border-border bg-background p-8">
             <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-              From
+              Free quote
             </p>
-            <p className="mt-2 font-display text-5xl font-semibold text-navy">$180</p>
+            <p className="mt-2 font-display text-4xl font-semibold text-navy">
+              No hidden fees
+            </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              standard single-storey home
+              Single-storey and two-storey homes quoted on inspection
             </p>
             <ul className="mt-6 space-y-2 text-sm">
-              <li>Two-storey homes from $280</li>
+              <li>Clear price before we start</li>
               <li>Screens, tracks and hard-water treatment quoted extra</li>
               <li>Interior + exterior available as a full service</li>
             </ul>

@@ -123,7 +123,7 @@ export const GUTTER_FAQS = [
   },
   {
     q: "What is included in a typical clean?",
-    a: "A standard 3–4 bedroom home gutter clean from $220 includes debris removal, a flush, and downpipe clearing. You receive transparent pricing and a free quote before we start — no hidden fees.",
+    a: "A standard home gutter clean includes debris removal, a flush, and downpipe clearing. You receive transparent pricing and a free quote before we start — no hidden fees.",
   },
 ] as const;
 

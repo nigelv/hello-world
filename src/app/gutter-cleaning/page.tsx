@@ -169,11 +169,10 @@ export default function GutterCleaningPage() {
               Pricing &amp; packages
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Typical 3–4 bedroom home gutter clean from $220. Includes full
-              debris removal and flush. Add gutter guard supply/install.
-              Transparent pricing, free quotes. Larger roofs, steep pitches and
-              heavy sludge after years of neglect are quoted on inspection so
-              you are never guessing.
+              A typical home gutter clean includes full debris removal and
+              flush. Add gutter guard supply/install. Transparent pricing, free
+              quotes. Larger roofs, steep pitches and heavy sludge after years
+              of neglect are quoted on inspection so you are never guessing.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Many clients pair this with{" "}
@@ -186,11 +185,13 @@ export default function GutterCleaningPage() {
           </div>
           <div className="rounded-2xl border border-border bg-background p-8">
             <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-              From
+              Free quote
             </p>
-            <p className="mt-2 font-display text-5xl font-semibold text-navy">$220</p>
+            <p className="mt-2 font-display text-4xl font-semibold text-navy">
+              No hidden fees
+            </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              typical 3–4 bedroom home
+              Typical 3–4 bedroom homes quoted on inspection
             </p>
             <ul className="mt-6 space-y-2 text-sm">
               <li>Debris removal, flush and downpipe clearing</li>

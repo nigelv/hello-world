@@ -68,10 +68,11 @@ export default function GutterSuburbPage({ params }: { params: Params }) {
           Victoria&apos;s wet months.
         </p>
         <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-          A typical 3–4 bedroom home in {suburb} is from $220, including full
-          debris removal and a flush. We inspect as we clean and can assess
-          sagging lengths, leaking joins or gutter guard options. No ladders on
-          fragile roofs — safety first on every {suburb} job.
+          A typical home gutter clean in {suburb} includes full debris removal
+          and a flush. We inspect as we clean and can assess sagging lengths,
+          leaking joins or gutter guard options. No ladders on fragile roofs —
+          safety first on every {suburb} job. Ask for a free quote before we
+          start.
         </p>
         <p className="mt-4 text-base leading-relaxed text-muted-foreground">
           Combine with{" "}

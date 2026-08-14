@@ -130,8 +130,8 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   Interior and exterior glass, frames and sills for homes in Box
-                  Hill, Blackburn, Doncaster and beyond. Streak-free finish from
-                  $180 for a standard single-storey home.
+                  Hill, Blackburn, Doncaster and beyond. Streak-free finish with
+                  a free, no-obligation quote.
                 </p>
                 <p className="mt-4 text-sm font-semibold text-primary">
                   Window cleaning Eastern Suburbs →
@@ -155,8 +155,8 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   Leaves, sludge and blocked downpipes cleared safely so
-                  Melbourne rain stays off your walls and footings. Typical 3–4
-                  bedroom homes from $220.
+                  Melbourne rain stays off your walls and footings. Free quotes
+                  for homes across the Eastern Suburbs.
                 </p>
                 <p className="mt-4 text-sm font-semibold text-primary">
                   Gutter cleaning Eastern Suburbs →

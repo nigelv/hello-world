@@ -73,8 +73,8 @@ export default function WindowSuburbPage({ params }: { params: Params }) {
           film dull glass faster than inner-city apartments. Regular
           professional window cleaning every 6–12 months keeps rooms brighter,
           improves kerb appeal, and protects frames from long-term staining.
-          Standard single-storey homes start from $180; two-storey from $280,
-          with screens and hard-water treatment quoted as add-ons.
+          Single-storey and two-storey homes are quoted on inspection, with
+          screens and hard-water treatment included as add-ons when needed.
         </p>
         <p className="mt-4 text-base leading-relaxed text-muted-foreground">
           Pair your {suburb} window clean with{" "}
