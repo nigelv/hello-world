@@ -221,8 +221,8 @@ export default function GutterCleaningPage() {
             <BeforeAfter
               beforeSrc="/images/gutter-before.jpg"
               afterSrc="/images/gutter-after.jpg"
-              beforeAlt="Gutter cleaning removing leaves and debris from roof in Box Hill Victoria — before"
-              afterAlt="Before and after gutter cleaning results on Eastern Suburbs Melbourne home"
+              beforeAlt="Roof valley and gutter overflowing with dry leaves and debris before gutter cleaning on grey tiled roof"
+              afterAlt="Clean roof valley with black mesh gutter guard after professional gutter cleaning on grey tiled roof"
               caption="Blocked channels cleared — water can move again."
             />
           </div>
