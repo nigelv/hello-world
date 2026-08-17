@@ -6,7 +6,7 @@ export function BrandMark({ className = "h-10 w-10" }: { className?: string }) {
       aria-hidden="true"
       fill="none"
     >
-      <rect width="48" height="48" rx="12" className="fill-primary" />
+      <rect width="48" height="48" rx="12" className="fill-navy" />
       <path
         d="M14 16.5h20v15H14z"
         className="stroke-white"
