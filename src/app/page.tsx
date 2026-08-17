@@ -54,7 +54,7 @@ export default function HomePage() {
                 "Transparent pricing",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-300" />
+                  <Check className="h-4 w-4 text-sky-200" />
                   {item}
                 </li>
               ))}

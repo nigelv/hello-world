@@ -4,27 +4,27 @@
 
 @layer base {
   :root {
-    --background: 40 33% 98%;
-    --foreground: 196 28% 12%;
+    --background: 200 45% 98%;
+    --foreground: 207 48% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 196 28% 12%;
+    --card-foreground: 207 48% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 196 28% 12%;
-    --primary: 174 58% 28%;
+    --popover-foreground: 207 48% 14%;
+    --primary: 174 72% 32%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 40 20% 94%;
-    --secondary-foreground: 196 28% 16%;
-    --muted: 40 16% 93%;
-    --muted-foreground: 196 10% 38%;
-    --accent: 174 30% 92%;
-    --accent-foreground: 174 58% 18%;
+    --secondary: 199 42% 94%;
+    --secondary-foreground: 207 48% 16%;
+    --muted: 200 32% 94%;
+    --muted-foreground: 207 14% 38%;
+    --accent: 174 48% 93%;
+    --accent-foreground: 174 72% 22%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 40 14% 86%;
-    --input: 40 14% 86%;
-    --ring: 174 58% 28%;
-    --navy: 196 48% 14%;
-    --cta: 18 88% 48%;
+    --border: 199 22% 86%;
+    --input: 199 22% 86%;
+    --ring: 174 72% 32%;
+    --navy: 207 72% 18%;
+    --cta: 187 88% 36%;
     --radius: 0.75rem;
   }
 
@@ -38,6 +38,9 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 8% -8%, hsl(199 90% 88% / 0.55), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, hsl(174 60% 88% / 0.5), transparent);
   }
 
   h1,
