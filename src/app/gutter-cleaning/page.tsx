@@ -217,13 +217,20 @@ export default function GutterCleaningPage() {
             View real results from local Eastern Suburbs properties we have
             restored.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 grid gap-10 lg:grid-cols-2">
             <BeforeAfter
               beforeSrc="/images/gutter-before.jpg"
               afterSrc="/images/gutter-after.jpg"
-              beforeAlt="Roof valley and gutter overflowing with dry leaves and debris before gutter cleaning on grey tiled roof"
-              afterAlt="Clean roof valley with black mesh gutter guard after professional gutter cleaning on grey tiled roof"
-              caption="Blocked channels cleared — water can move again."
+              beforeAlt="Clogged residential gutter filled with wet leaves and debris before professional gutter cleaning"
+              afterAlt="Clean white gutter flushed with water after professional gutter cleaning on corrugated metal roof"
+              caption="Full-length gutter run — debris removed and flushed clean."
+            />
+            <BeforeAfter
+              beforeSrc="/images/gutter-before-2.jpg"
+              afterSrc="/images/gutter-after-2.jpg"
+              beforeAlt="Gutter clogged with dry leaves and weeds growing before professional gutter cleaning"
+              afterAlt="Same gutter section cleared of leaves and weeds after professional gutter cleaning"
+              caption="Close-up — leaves, weeds and sludge cleared from the channel."
             />
           </div>
           <Image

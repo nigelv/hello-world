@@ -231,9 +231,9 @@ export default function HomePage() {
             <BeforeAfter
               beforeSrc="/images/gutter-before.jpg"
               afterSrc="/images/gutter-after.jpg"
-              beforeAlt="Roof valley and gutter overflowing with dry leaves and debris before gutter cleaning on grey tiled roof"
-              afterAlt="Clean roof valley with black mesh gutter guard after professional gutter cleaning on grey tiled roof"
-              caption="Gutter cleaning — leaves and sludge out, water flowing again."
+              beforeAlt="Clogged residential gutter filled with wet leaves and debris before professional gutter cleaning"
+              afterAlt="Clean white gutter flushed with water after professional gutter cleaning on corrugated metal roof"
+              caption="Gutter cleaning — blocked channels cleared, water flowing again."
             />
           </div>
         </div>
