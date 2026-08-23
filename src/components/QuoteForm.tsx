@@ -7,6 +7,8 @@ const SERVICES = [
   "Window cleaning",
   "Gutter cleaning",
   "Windows and gutters",
+  "Pressure cleaning",
+  "Solar panel cleaning",
 ] as const;
 
 type Status = "idle" | "submitting" | "success" | "error";

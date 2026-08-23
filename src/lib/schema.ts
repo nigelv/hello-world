@@ -25,7 +25,7 @@ export function localBusinessSchema() {
       addressCountry: "AU",
     },
     openingHours: "Mo-Sa 07:00-18:00",
-    serviceType: ["Window Cleaning", "Gutter Cleaning", "Pressure Cleaning"],
+    serviceType: ["Window Cleaning", "Gutter Cleaning", "Pressure Cleaning", "Solar Panel Cleaning"],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Cleaning Services",
@@ -48,6 +48,26 @@ export function localBusinessSchema() {
             description:
               "Thorough gutter and downpipe cleaning to prevent damage in Victoria homes",
             url: `${SITE.url}/gutter-cleaning`,
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Pressure Cleaning",
+            description:
+              "Professional pressure cleaning for driveways, decks, paths and exteriors",
+            url: `${SITE.url}/pressure-cleaning`,
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Solar Panel Cleaning",
+            description:
+              "Solar panel cleaning to remove dust and restore power output",
+            url: `${SITE.url}/solar-panel-cleaning`,
           },
         },
       ],

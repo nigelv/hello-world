@@ -112,7 +112,7 @@ export default function HomePage() {
             local — no call-centre runaround. Choose a focused service or
             combine both on one visit.
           </p>
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
             <Link
               href="/window-cleaning"
               className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition hover:border-primary/30"
@@ -160,6 +160,56 @@ export default function HomePage() {
                 </p>
                 <p className="mt-4 text-sm font-semibold text-primary">
                   Gutter cleaning Eastern Suburbs →
+                </p>
+              </div>
+            </Link>
+            <Link
+              href="/pressure-cleaning"
+              className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition hover:border-primary/30"
+            >
+              <Image
+                src="/images/pressure-after.jpg"
+                alt="Clean driveway after pressure cleaning Eastern Suburbs Melbourne"
+                width={1376}
+                height={768}
+                className="h-56 w-full object-cover transition group-hover:scale-[1.02]"
+              />
+              <div className="p-6">
+                <h3 className="font-display text-2xl font-semibold text-navy">
+                  Pressure cleaning
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Over time, dirt makes tiles, bricks and driveways look old and
+                  worn. We restore paths, decks and exteriors with specialised
+                  equipment for dramatic before-and-after results.
+                </p>
+                <p className="mt-4 text-sm font-semibold text-primary">
+                  Pressure cleaning Eastern Suburbs →
+                </p>
+              </div>
+            </Link>
+            <Link
+              href="/solar-panel-cleaning"
+              className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition hover:border-primary/30"
+            >
+              <Image
+                src="/images/solar-hero.jpg"
+                alt="Solar panel cleaning on residential roof Eastern Suburbs Melbourne"
+                width={1376}
+                height={768}
+                className="h-56 w-full object-cover transition group-hover:scale-[1.02]"
+              />
+              <div className="p-6">
+                <h3 className="font-display text-2xl font-semibold text-navy">
+                  Solar panel cleaning
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Panels can lose efficiency when covered in dirt. We use
+                  water-fed poles to wash roof arrays so your solar investment
+                  keeps producing power through Melbourne summers.
+                </p>
+                <p className="mt-4 text-sm font-semibold text-primary">
+                  Solar panel cleaning Eastern Suburbs →
                 </p>
               </div>
             </Link>

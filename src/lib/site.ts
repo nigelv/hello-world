@@ -43,6 +43,8 @@ export const NAV = [
   { href: "/", label: "Home" },
   { href: "/window-cleaning", label: "Window Cleaning" },
   { href: "/gutter-cleaning", label: "Gutter Cleaning" },
+  { href: "/pressure-cleaning", label: "Pressure Cleaning" },
+  { href: "/solar-panel-cleaning", label: "Solar Cleaning" },
   { href: "/areas", label: "Areas" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -142,7 +144,57 @@ export const HOME_FAQS = [
   },
   {
     q: "Do you do pressure washing?",
-    a: "Pressure cleaning is a related service we can discuss when quoting paths, driveways or exterior surfaces. Window and gutter cleaning remain our core work across the Eastern Suburbs.",
+    a: "Yes. We pressure clean driveways, paths, decks, brickwork and exterior surfaces across the Eastern Suburbs. Many clients combine pressure cleaning with window or gutter work on the same visit.",
+  },
+  {
+    q: "Do you clean solar panels?",
+    a: "Yes. We use water-fed poles to safely wash roof-mounted solar panels and help restore output after Melbourne dust and grime build-up. Call for a free quote.",
+  },
+] as const;
+
+export const PRESSURE_FAQS = [
+  {
+    q: "What can you pressure clean in Eastern Suburbs Melbourne?",
+    a: "Concrete paths and driveways, wooden decks and patios, eaves, housing exteriors, outdoor furniture, brickwork, pool surrounds and more. Ask us if you are unsure about a surface.",
+  },
+  {
+    q: "Is pressure cleaning safe for all surfaces?",
+    a: "We adjust pressure and technique to suit each surface so timber, soft stone and delicate finishes are protected during professional pressure cleaning.",
+  },
+  {
+    q: "Will pressure cleaning help if I am selling my home?",
+    a: "Yes. A clean driveway and exterior can add significant kerb appeal for buyers viewing Eastern Suburbs properties — often one of the highest-impact presentation upgrades.",
+  },
+  {
+    q: "How messy is pressure cleaning?",
+    a: "There is water runoff during the job. We prepare the area carefully and leave outdoor spaces looking refreshed. We explain what to expect when you book.",
+  },
+  {
+    q: "How do I get a free pressure cleaning quote?",
+    a: "Call 0433 230 310 or send your suburb and surface details through our quote form. Free quotes for pressure cleaning Eastern Suburbs Melbourne.",
+  },
+] as const;
+
+export const SOLAR_FAQS = [
+  {
+    q: "Why should I get solar panels cleaned in Melbourne?",
+    a: "Solar panels can lose around 20% of their efficiency when covered in dirt. Melbourne dust in rain can build up on panels over time. Regular cleaning helps your system work more effectively.",
+  },
+  {
+    q: "How often should solar panels be cleaned?",
+    a: "Many Eastern Suburbs homes benefit from an annual solar panel clean, or more often if you notice heavy dust, pollen, bird droppings or reduced output.",
+  },
+  {
+    q: "How do you access panels on my roof?",
+    a: "We use water-fed poles to access tricky-to-reach panels, reducing the need for risky DIY ladder work on your roof.",
+  },
+  {
+    q: "Do you service solar panel cleaning across the Eastern Suburbs?",
+    a: "Yes — we clean solar panels across Eastern Suburbs Melbourne including Box Hill, Doncaster, Glen Waverley, Mount Waverley and surrounding suburbs.",
+  },
+  {
+    q: "How do I get a free solar panel cleaning quote?",
+    a: "Call 0433 230 310 or use our contact form with your suburb and panel details. We provide a free, no-obligation quote.",
   },
 ] as const;
 
@@ -189,5 +241,48 @@ export const GUTTER_PROCESS = [
     title: "Optional guards",
     detail:
       "If guards will help your particular roof and tree cover, we can quote supply and install after the clean.",
+  },
+] as const;
+
+export const PRESSURE_PROCESS = [
+  {
+    title: "Assess surfaces",
+    detail:
+      "We match pressure and technique to concrete, timber, brick, paving or other finishes before we start.",
+  },
+  {
+    title: "Prep the area",
+    detail: "Furniture, plants and sensitive spots are protected before washing begins.",
+  },
+  {
+    title: "Deep clean",
+    detail:
+      "Specialised equipment lifts years of dirt, mould, mildew and oil staining for a like-new finish.",
+  },
+  {
+    title: "Reveal the result",
+    detail:
+      "You see the before-and-after difference as soon as surfaces dry — safer underfoot and sharper kerb appeal.",
+  },
+] as const;
+
+export const SOLAR_PROCESS = [
+  {
+    title: "Free quote",
+    detail:
+      "Tell us your array size, roof access and suburb — we provide a clear quote with no obligation.",
+  },
+  {
+    title: "Book a time",
+    detail: "We schedule around weather and your home, with punctual arrival.",
+  },
+  {
+    title: "Gentle clean",
+    detail:
+      "Water-fed poles wash away built-up dust and grime without harsh abrasion on panel coatings.",
+  },
+  {
+    title: "Power-ready finish",
+    detail: "Sparkling panels ready to do what they do best — create power.",
   },
 ] as const;

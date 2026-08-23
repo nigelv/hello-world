@@ -17,18 +17,25 @@ const suburbs = [
 
 const nextConfig = {
   async redirects() {
-    return suburbs.flatMap((slug) => [
+    return [
       {
-        source: `/gutter-cleaning-${slug}`,
-        destination: `/gutter-cleaning/${slug}`,
+        source: "/solar",
+        destination: "/solar-panel-cleaning",
         permanent: true,
       },
-      {
-        source: `/window-cleaning-${slug}`,
-        destination: `/window-cleaning/${slug}`,
-        permanent: true,
-      },
-    ]);
+      ...suburbs.flatMap((slug) => [
+        {
+          source: `/gutter-cleaning-${slug}`,
+          destination: `/gutter-cleaning/${slug}`,
+          permanent: true,
+        },
+        {
+          source: `/window-cleaning-${slug}`,
+          destination: `/window-cleaning/${slug}`,
+          permanent: true,
+        },
+      ]),
+    ];
   },
 };
 

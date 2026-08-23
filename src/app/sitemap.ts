@@ -3,7 +3,16 @@ import { SITE, SUBURBS, suburbSlug } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const staticRoutes = ["", "/window-cleaning", "/gutter-cleaning", "/about", "/contact", "/areas"];
+  const staticRoutes = [
+    "",
+    "/window-cleaning",
+    "/gutter-cleaning",
+    "/pressure-cleaning",
+    "/solar-panel-cleaning",
+    "/about",
+    "/contact",
+    "/areas",
+  ];
 
   const suburbRoutes = SUBURBS.flatMap((suburb) => {
     const slug = suburbSlug(suburb);

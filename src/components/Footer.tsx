@@ -13,8 +13,8 @@ export function Footer() {
             <span className="font-display text-lg font-semibold">{SITE.name}</span>
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-white/75">
-            Professional window and gutter cleaning for homes across Melbourne&apos;s
-            Eastern Suburbs and Victoria.
+            Professional window, gutter, pressure and solar panel cleaning for
+            homes across Melbourne&apos;s Eastern Suburbs and Victoria.
           </p>
           <a
             href={SITE.phoneHref}
@@ -55,6 +55,16 @@ export function Footer() {
             <li>
               <Link href="/gutter-cleaning" className="hover:text-white">
                 Gutter cleaning Eastern Suburbs Melbourne
+              </Link>
+            </li>
+            <li>
+              <Link href="/pressure-cleaning" className="hover:text-white">
+                Pressure cleaning Eastern Suburbs Melbourne
+              </Link>
+            </li>
+            <li>
+              <Link href="/solar-panel-cleaning" className="hover:text-white">
+                Solar panel cleaning Eastern Suburbs Melbourne
               </Link>
             </li>
             <li>
