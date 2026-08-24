@@ -179,9 +179,9 @@ export default function SolarPanelCleaningPage() {
             <BeforeAfter
               beforeSrc="/images/solar-before.jpg"
               afterSrc="/images/solar-after.jpg"
-              beforeAlt="Dusty solar panels before solar panel cleaning Eastern Suburbs Melbourne"
-              afterAlt="Clean solar panels after solar panel cleaning Eastern Suburbs Melbourne"
-              caption="Roof-mounted arrays — dust lifted, glass clear, ready for peak sun."
+              beforeAlt="Solar panels covered in lichen and moss before professional cleaning on grey tiled roof"
+              afterAlt="Clean reflective solar panels after professional cleaning with moss still on surrounding roof tiles"
+              caption="Roof-mounted arrays — lichen and grime lifted, glass clear, ready for peak sun."
             />
           </div>
         </div>
