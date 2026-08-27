@@ -1,50 +1,61 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 40 33% 98%;
-    --foreground: 210 24% 12%;
+    --background: 200 45% 98%;
+    --foreground: 207 48% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 210 24% 12%;
+    --card-foreground: 207 48% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 24% 12%;
-    --primary: 174 58% 32%;
+    --popover-foreground: 207 48% 14%;
+    --primary: 182 72% 34%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 40 20% 94%;
-    --secondary-foreground: 210 24% 16%;
-    --muted: 40 16% 93%;
-    --muted-foreground: 210 10% 42%;
-    --accent: 174 30% 92%;
-    --accent-foreground: 174 58% 22%;
+    --secondary: 199 42% 94%;
+    --secondary-foreground: 207 48% 16%;
+    --muted: 200 32% 94%;
+    --muted-foreground: 207 14% 38%;
+    --accent: 186 48% 93%;
+    --accent-foreground: 186 72% 22%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 40 14% 88%;
-    --input: 40 14% 88%;
-    --ring: 174 58% 32%;
-    --sidebar: 40 28% 96%;
-    --radius: 0.5rem;
+    --border: 199 22% 86%;
+    --input: 199 22% 86%;
+    --ring: 182 72% 34%;
+    --navy: 207 72% 18%;
+    --cta: 187 88% 36%;
+    --radius: 0.75rem;
   }
 
   * {
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
     background-image:
-      radial-gradient(ellipse 80% 50% at 10% -10%, hsl(174 40% 90% / 0.7), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 0%, hsl(40 50% 92% / 0.8), transparent);
-    min-height: 100vh;
+      radial-gradient(ellipse 80% 50% at 8% -8%, hsl(199 90% 88% / 0.55), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, hsl(174 60% 88% / 0.5), transparent);
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.03em;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: "Fraunces", ui-serif, Georgia, serif;
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }

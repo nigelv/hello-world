@@ -43,7 +43,8 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: "hsl(var(--sidebar))",
+        navy: "hsl(var(--navy))",
+        cta: "hsl(var(--cta))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -51,8 +52,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["DM Sans", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Fraunces", "ui-serif", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "ui-serif", "Georgia", "serif"],
       },
     },
   },
