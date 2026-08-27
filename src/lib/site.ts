@@ -81,6 +81,11 @@ export const TESTIMONIALS = [
     name: "C.L.",
     suburb: "",
   },
+  {
+    quote: "Great price. Thank you, did an amazing job.",
+    name: "J.H.",
+    suburb: "",
+  },
 ] as const;
 
 export const WINDOW_FAQS = [
