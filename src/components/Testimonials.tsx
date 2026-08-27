@@ -28,7 +28,9 @@ export function Testimonials({
               </blockquote>
               <figcaption className="mt-5 text-sm font-semibold text-navy">
                 {item.name}
-                <span className="font-normal text-muted-foreground"> · {item.suburb}</span>
+                {item.suburb ? (
+                  <span className="font-normal text-muted-foreground"> · {item.suburb}</span>
+                ) : null}
               </figcaption>
             </figure>
           ))}

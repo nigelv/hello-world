@@ -53,33 +53,33 @@ export const NAV = [
 export const TESTIMONIALS = [
   {
     quote:
-      "Dynamic Cleaning Vic did an outstanding job on our windows and gutters in Box Hill. Professional, punctual and the results are amazing. Highly recommend!",
-    name: "Sarah T.",
-    suburb: "Box Hill",
+      "Great job always for gutter cleaning services. Highly recommend.",
+    name: "A.A.",
+    suburb: "",
   },
   {
     quote:
-      "Best gutter cleaning service we've had in Blackburn. They cleared everything safely and explained the issues. Will use again every year.",
-    name: "Michael R.",
-    suburb: "Blackburn",
+      "We've been using Nigel for our window cleaning at our Blackburn South house for two years now, and he's been fantastic. Every six months he takes care of our interior and exterior windows, fly screens, and skylights — and the results are always excellent. Nigel is friendly, reliable, efficient, and consistently on time. His pricing is very reasonable for the quality of work you get. Highly recommend!",
+    name: "R.W.",
+    suburb: "Blackburn South",
   },
   {
     quote:
-      "Excellent window cleaning in Doncaster. Streak-free and they were careful around our garden. Free quote was quick and no pressure.",
-    name: "Lisa K.",
-    suburb: "Doncaster",
+      "We recently utilised the service of Dynamic Cleaning after a recommendation from a neighbour. Nigel was professional, efficient and cleaned up after himself. Highly recommend this business and will be sure to use them again.",
+    name: "D.W.",
+    suburb: "",
   },
   {
     quote:
-      "Reliable and thorough gutter cleaning in Ringwood. Prevented potential leaks before winter. Friendly team, great price.",
-    name: "David W.",
-    suburb: "Ringwood",
+      "I've been using Nigel's services for years as he always does a great job and his prices are extremely reasonable. He is punctual, polite, helpful and professional. He's done my windows, solar panels and gutters and they all end up satisfyingly clean.",
+    name: "P.G.",
+    suburb: "",
   },
   {
     quote:
-      "Top local window cleaners for our Eastern Suburbs home. Transformed the look of the house. Booking was easy and they arrived on time.",
-    name: "Emma L.",
-    suburb: "Glen Waverley",
+      "I'm glad that I found Dynamic cleaning. Nigel did a very detailed gutter cleaning for me, he is professional and also a very nice person to deal with. He done a great job with reasonable price, includes before and after photos. Will definitely use dynamic cleaning company for my future gutter cleaning, highly recommended to anyone who needs a fabulous cleaning service.",
+    name: "C.L.",
+    suburb: "",
   },
 ] as const;
 
