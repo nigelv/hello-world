@@ -349,6 +349,27 @@
     }
     .status.error { color: var(--warn); }
 
+    .copy-preview {
+      display: none;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--line);
+    }
+    .copy-preview.show { display: block; }
+    .copy-preview label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .copy-preview textarea {
+      min-height: 160px;
+      font-size: 0.86rem;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
     .footnote {
       margin: 1rem 0 0;
       color: var(--muted);
@@ -564,6 +585,10 @@
             <button type="button" class="btn btn-ghost wide" id="clearSavedBtn">Clear saved quote</button>
           </div>
           <p id="status" class="status no-print" aria-live="polite"></p>
+          <div id="copyPreview" class="copy-preview no-print">
+            <label for="copyText">Quote text (selected — press Ctrl/Cmd+C if needed)</label>
+            <textarea id="copyText" readonly></textarea>
+          </div>
         </div>
       </aside>
     </div>
@@ -938,22 +963,35 @@
         const quote = buildQuote(s);
         if (!quote.lines.length) return;
         const text = formatQuoteText(s, quote);
-        try {
-          await navigator.clipboard.writeText(text);
-          setStatus("Quote copied — ready to paste into SMS or email.");
-        } catch (_) {
-          const area = document.createElement("textarea");
-          area.value = text;
-          document.body.appendChild(area);
-          area.select();
+        const preview = $("copyPreview");
+        const copyText = $("copyText");
+        preview.classList.add("show");
+        copyText.value = text;
+        copyText.focus();
+        copyText.select();
+
+        let copied = false;
+        if (navigator.clipboard && window.isSecureContext) {
           try {
-            document.execCommand("copy");
-            setStatus("Quote copied — ready to paste into SMS or email.");
-          } catch (err) {
-            setStatus("Could not copy automatically. Select and copy manually.", true);
+            await navigator.clipboard.writeText(text);
+            copied = true;
+          } catch (_) {
+            /* fall through */
           }
-          area.remove();
         }
+        if (!copied) {
+          try {
+            copied = document.execCommand("copy");
+          } catch (_) {
+            copied = false;
+          }
+        }
+        setStatus(
+          copied
+            ? "Quote copied — ready to paste into SMS or email."
+            : "Quote text ready below — press Ctrl/Cmd+C to copy.",
+          !copied
+        );
       });
 
       $("printBtn").addEventListener("click", () => window.print());
