@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f766e" />
+  <title>Quote Calculator | Dynamic Cleaning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0b2a3d;
+      --ink: #143044;
+      --muted: #4d6474;
+      --line: #c9d8e2;
+      --paper: #f3f8fb;
+      --white: #ffffff;
+      --teal: #0f766e;
+      --teal-deep: #0b5f59;
+      --teal-soft: #d7f0ed;
+      --sky: #e8f4f8;
+      --warn: #9a3412;
+      --ok: #166534;
+      --shadow: 0 10px 30px rgba(11, 42, 61, 0.08);
+      --radius: 14px;
+      --font-display: "Fraunces", Georgia, serif;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --gst: 0.1;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-sans);
+      background:
+        radial-gradient(ellipse 90% 55% at 0% -10%, #c9ebf3 0%, transparent 55%),
+        radial-gradient(ellipse 70% 45% at 100% 0%, #cdeedf 0%, transparent 50%),
+        linear-gradient(180deg, #eef6f9 0%, var(--paper) 40%, #e7f1f5 100%);
+      min-height: 100vh;
+      line-height: 1.45;
+    }
+
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    a { color: var(--teal-deep); }
+
+    .wrap {
+      width: min(980px, calc(100% - 1.5rem));
+      margin: 0 auto;
+      padding: 1rem 0 3rem;
+    }
+
+    .brand {
+      display: grid;
+      gap: 0.35rem;
+      padding: 0.75rem 0 1.25rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+      margin-bottom: 1.25rem;
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 5vw, 2.55rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin: 0;
+      line-height: 1.05;
+    }
+    .brand-tag {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 36ch;
+    }
+    .brand-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 1rem;
+      margin-top: 0.35rem;
+      font-size: 0.92rem;
+    }
+    .brand-contact a { text-decoration: none; font-weight: 600; }
+    .brand-contact a:hover { text-decoration: underline; }
+
+    .layout {
+      display: grid;
+      gap: 1.1rem;
+    }
+    @media (min-width: 860px) {
+      .layout {
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: start;
+      }
+      .quote-panel { position: sticky; top: 0.75rem; }
+    }
+
+    .panel {
+      background: color-mix(in srgb, var(--white) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1rem 1rem 1.15rem;
+    }
+    .panel h2 {
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      margin: 0 0 0.85rem;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 1rem 0 0.45rem;
+    }
+    .section-label:first-child { margin-top: 0; }
+
+    .grid-2 {
+      display: grid;
+      gap: 0.7rem;
+    }
+    @media (min-width: 520px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+
+    label.field {
+      display: grid;
+      gap: 0.28rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .hint {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.7rem 0.8rem;
+      background: var(--white);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal) 25%, transparent);
+    }
+    textarea { min-height: 96px; resize: vertical; font-weight: 400; }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
+    }
+    .segmented.two { grid-template-columns: 1fr 1fr; }
+    .segmented label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      min-height: 2.7rem;
+      padding: 0.45rem 0.5rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .segmented input { position: absolute; opacity: 0; pointer-events: none; }
+    .segmented label:has(input:checked) {
+      background: var(--teal-soft);
+      border-color: var(--teal);
+      color: var(--teal-deep);
+    }
+    .segmented label:has(input:focus-visible) {
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal) 25%, transparent);
+    }
+
+    .services {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .service {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+      padding: 0.75rem 0.8rem;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .service.active {
+      border-color: color-mix(in srgb, var(--teal) 55%, var(--line));
+      background: linear-gradient(180deg, #f4fbfa, var(--white));
+    }
+    .service-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+    .service-top input {
+      width: 1.15rem;
+      height: 1.15rem;
+      margin-top: 0.15rem;
+      accent-color: var(--teal);
+      flex: 0 0 auto;
+    }
+    .service-title {
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0;
+    }
+    .service-rate {
+      margin: 0.1rem 0 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .service-extra {
+      display: none;
+      margin-top: 0.7rem;
+      padding-top: 0.7rem;
+      border-top: 1px dashed var(--line);
+    }
+    .service.active .service-extra { display: grid; gap: 0.65rem; }
+
+    .travel-banner {
+      display: none;
+      margin-top: 0.9rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 10px;
+      background: #fff7ed;
+      border: 1px solid #fdba74;
+      color: var(--warn);
+      font-size: 0.9rem;
+    }
+    .travel-banner.show { display: block; }
+    .travel-banner strong { color: #7c2d12; }
+
+    .quote-panel .empty {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .lines { display: grid; gap: 0.55rem; margin: 0 0 0.9rem; }
+    .line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.25rem 0.75rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+    }
+    .line-name { font-weight: 700; color: var(--navy); }
+    .line-meta { grid-column: 1 / -1; color: var(--muted); font-size: 0.84rem; }
+    .line-amt { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+    .totals {
+      display: grid;
+      gap: 0.35rem;
+      margin-bottom: 0.9rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 12px;
+      background: linear-gradient(180deg, var(--sky), #f7fbfd);
+      border: 1px solid var(--line);
+    }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .total-row.grand {
+      margin-top: 0.2rem;
+      padding-top: 0.45rem;
+      border-top: 1px solid var(--line);
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .actions {
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: 1fr 1fr;
+    }
+    .actions .wide { grid-column: 1 / -1; }
+
+    .btn {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      padding: 0.75rem 0.9rem;
+      font-weight: 700;
+      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+    }
+    .btn-primary:hover:not(:disabled) { background: var(--teal-deep); }
+    .btn-secondary {
+      background: var(--white);
+      border-color: var(--line);
+      color: var(--navy);
+    }
+    .btn-secondary:hover:not(:disabled) { border-color: var(--teal); color: var(--teal-deep); }
+    .btn-ghost {
+      background: transparent;
+      border-color: transparent;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .btn-ghost:hover:not(:disabled) { color: var(--navy); background: color-mix(in srgb, var(--white) 60%, transparent); }
+
+    .status {
+      min-height: 1.2rem;
+      margin: 0.45rem 0 0;
+      font-size: 0.86rem;
+      color: var(--ok);
+    }
+    .status.error { color: var(--warn); }
+
+    .footnote {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .print-only { display: none; }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      .wrap { width: 100%; margin: 0; padding: 0; }
+      .no-print { display: none !important; }
+      .print-only { display: block; }
+      .panel {
+        box-shadow: none;
+        border: none;
+        background: white;
+        padding: 0;
+      }
+      .quote-panel { position: static; }
+      .brand { border-bottom: 2px solid #111; margin-bottom: 1rem; }
+      .totals { background: #f5f5f5; }
+      a { color: black; text-decoration: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <h1 class="brand-name">Dynamic Cleaning</h1>
+      <p class="brand-tag">Melbourne quote calculator — windows, gutters, pressure &amp; solar</p>
+      <div class="brand-contact">
+        <a href="tel:0433230310">0433 230 310</a>
+        <a href="mailto:dynamiccleaningvic@gmail.com">dynamiccleaningvic@gmail.com</a>
+        <a href="https://dynamiccleaningvic.com.au" target="_blank" rel="noopener">dynamiccleaningvic.com.au</a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <form id="quoteForm" class="panel no-print" autocomplete="on">
+        <h2>Job details</h2>
+
+        <span class="section-label">Property</span>
+        <div class="grid-2">
+          <label class="field">
+            Suburb
+            <input id="suburb" name="suburb" type="text" list="suburbList" placeholder="e.g. Box Hill, Mornington" required />
+            <span class="hint">Mornington includes travel + toll</span>
+          </label>
+          <label class="field">
+            Customer name <span class="hint">(optional)</span>
+            <input id="customerName" name="customerName" type="text" placeholder="Name for quote text" />
+          </label>
+        </div>
+
+        <datalist id="suburbList">
+          <option value="Box Hill"></option>
+          <option value="Blackburn"></option>
+          <option value="Doncaster"></option>
+          <option value="Ringwood"></option>
+          <option value="Glen Waverley"></option>
+          <option value="Mount Waverley"></option>
+          <option value="Nunawading"></option>
+          <option value="Mitcham"></option>
+          <option value="Vermont"></option>
+          <option value="Forest Hill"></option>
+          <option value="Burwood"></option>
+          <option value="Balwyn"></option>
+          <option value="Kew"></option>
+          <option value="Camberwell"></option>
+          <option value="Mornington"></option>
+          <option value="Mount Eliza"></option>
+          <option value="Frankston"></option>
+        </datalist>
+
+        <span class="section-label">Storeys</span>
+        <div class="segmented" role="radiogroup" aria-label="Storey count">
+          <label><input type="radio" name="storeys" value="1" checked /> 1</label>
+          <label><input type="radio" name="storeys" value="2" /> 2</label>
+          <label><input type="radio" name="storeys" value="3" /> 3+</label>
+        </div>
+
+        <span class="section-label">House size / windows</span>
+        <div class="segmented two" role="radiogroup" aria-label="Size mode">
+          <label><input type="radio" name="sizeMode" value="windows" checked /> Window count</label>
+          <label><input type="radio" name="sizeMode" value="size" /> House size</label>
+        </div>
+        <div class="grid-2" style="margin-top:0.7rem">
+          <label class="field" id="windowField">
+            Approx. windows
+            <input id="windowCount" name="windowCount" type="number" min="1" max="200" step="1" value="20" />
+          </label>
+          <label class="field" id="sizeField" hidden>
+            House size
+            <select id="houseSize" name="houseSize">
+              <option value="S">Small (unit / townhouse)</option>
+              <option value="M" selected>Medium (3–4 bed)</option>
+              <option value="L">Large (5+ bed / wide frontage)</option>
+            </select>
+          </label>
+          <label class="field">
+            Access
+            <select id="access" name="access">
+              <option value="easy">Easy access</option>
+              <option value="restricted">Restricted access</option>
+            </select>
+          </label>
+        </div>
+
+        <span class="section-label">Gutters</span>
+        <div class="segmented two" role="radiogroup" aria-label="Gutter storeys">
+          <label><input type="radio" name="gutterStoreys" value="single" checked /> Single storey</label>
+          <label><input type="radio" name="gutterStoreys" value="double" /> Double storey</label>
+        </div>
+
+        <span class="section-label">Services</span>
+        <div class="services">
+          <div class="service active" data-service="windows">
+            <div class="service-top">
+              <input type="checkbox" id="svcWindows" checked />
+              <div>
+                <p class="service-title">Window cleaning</p>
+                <p class="service-rate">From $140 / hour (minimum)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service" data-service="gutters">
+            <div class="service-top">
+              <input type="checkbox" id="svcGutters" />
+              <div>
+                <p class="service-title">Gutter cleaning</p>
+                <p class="service-rate">$180–$200 / hour</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service" data-service="pressure">
+            <div class="service-top">
+              <input type="checkbox" id="svcPressure" />
+              <div>
+                <p class="service-title">Pressure cleaning</p>
+                <p class="service-rate">$220 / hour</p>
+              </div>
+            </div>
+            <div class="service-extra">
+              <label class="field">
+                Areas to clean
+                <select id="pressureScope" name="pressureScope">
+                  <option value="driveway">Driveway / paths</option>
+                  <option value="house">House walls / eaves</option>
+                  <option value="combo" selected>Driveway + house exterior</option>
+                  <option value="full">Full property clean</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="service" data-service="solar">
+            <div class="service-top">
+              <input type="checkbox" id="svcSolar" />
+              <div>
+                <p class="service-title">Solar panel cleaning</p>
+                <p class="service-rate">$120–$150 / hour</p>
+              </div>
+            </div>
+            <div class="service-extra">
+              <label class="field">
+                Approx. panels
+                <input id="panelCount" name="panelCount" type="number" min="4" max="80" step="1" value="12" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div id="travelBanner" class="travel-banner" role="status">
+          <strong>Mornington travel:</strong> quote includes travel time plus EastLink / Peninsula Link tolls.
+        </div>
+
+        <span class="section-label">Notes</span>
+        <label class="field">
+          Quote notes
+          <textarea id="notes" name="notes" placeholder="Access notes, exclusions, preferred times…"></textarea>
+        </label>
+
+        <p class="footnote">Estimates are GST-aware guides for SMS/email quotes. Final price confirmed on site.</p>
+      </form>
+
+      <aside class="panel quote-panel" aria-live="polite">
+        <h2>Quote</h2>
+        <div id="quoteEmpty" class="empty">Select at least one service to build a quote.</div>
+        <div id="quoteBody" hidden>
+          <div class="print-only" style="margin-bottom:0.75rem">
+            <div id="printMeta"></div>
+          </div>
+          <div id="lines" class="lines"></div>
+          <div class="totals">
+            <div class="total-row"><span>Subtotal (ex GST)</span><span id="exGst">$0</span></div>
+            <div class="total-row"><span>GST (10%)</span><span id="gstAmt">$0</span></div>
+            <div class="total-row grand"><span>Total (inc GST)</span><span id="incGst">$0</span></div>
+          </div>
+          <div class="actions no-print">
+            <button type="button" class="btn btn-primary wide" id="copyBtn">Copy quote text</button>
+            <button type="button" class="btn btn-secondary" id="printBtn">Print</button>
+            <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
+            <button type="button" class="btn btn-ghost wide" id="clearSavedBtn">Clear saved quote</button>
+          </div>
+          <p id="status" class="status no-print" aria-live="polite"></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const STORAGE_KEY = "dynamicCleaning.lastQuote.v1";
+      const GST_RATE = 0.1;
+
+      const RATES = {
+        windows: 140,
+        guttersLow: 180,
+        guttersHigh: 200,
+        solarLow: 120,
+        solarHigh: 150,
+        pressure: 220,
+        morningtonTravel: 55,
+        morningtonToll: 18
+      };
+
+      const $ = (id) => document.getElementById(id);
+      const form = $("quoteForm");
+      const money = (n) =>
+        new Intl.NumberFormat("en-AU", {
+          style: "currency",
+          currency: "AUD",
+          maximumFractionDigits: 0
+        }).format(Math.round(n));
+
+      const stateFromForm = () => {
+        const sizeMode = form.sizeMode.value;
+        return {
+          suburb: $("suburb").value.trim(),
+          customerName: $("customerName").value.trim(),
+          storeys: Number(form.storeys.value),
+          sizeMode,
+          windowCount: Number($("windowCount").value) || 0,
+          houseSize: $("houseSize").value,
+          access: $("access").value,
+          gutterStoreys: form.gutterStoreys.value,
+          services: {
+            windows: $("svcWindows").checked,
+            gutters: $("svcGutters").checked,
+            pressure: $("svcPressure").checked,
+            solar: $("svcSolar").checked
+          },
+          pressureScope: $("pressureScope").value,
+          panelCount: Number($("panelCount").value) || 0,
+          notes: $("notes").value.trim()
+        };
+      };
+
+      const isMornington = (suburb) => /mornington/i.test(suburb || "");
+
+      const storeyFactor = (storeys) => {
+        if (storeys >= 3) return 1.45;
+        if (storeys === 2) return 1.25;
+        return 1;
+      };
+
+      const accessFactor = (access) => (access === "restricted" ? 1.2 : 1);
+
+      const sizeWindows = (size) => ({ S: 12, M: 20, L: 32 }[size] || 20);
+
+      const roundQuarter = (hours) => Math.max(1, Math.ceil(hours * 4) / 4);
+
+      const estimateWindowsHours = (s) => {
+        const windows = s.sizeMode === "windows" ? s.windowCount : sizeWindows(s.houseSize);
+        const perHour = s.storeys >= 3 ? 10 : s.storeys === 2 ? 12 : 15;
+        let hours = windows / perHour;
+        hours *= accessFactor(s.access);
+        return { hours: roundQuarter(hours), windows };
+      };
+
+      const estimateGuttersHours = (s) => {
+        const base = s.gutterStoreys === "double" ? 2 : 1.5;
+        const sizeAdj = { S: 0.85, M: 1, L: 1.25 }[s.sizeMode === "size" ? s.houseSize : "M"];
+        let hours = base * sizeAdj * storeyFactor(Math.min(s.storeys, s.gutterStoreys === "double" ? 2 : 1));
+        if (s.access === "restricted") hours *= 1.15;
+        return roundQuarter(hours);
+      };
+
+      const estimatePressureHours = (s) => {
+        const scope = {
+          driveway: 1.25,
+          house: 1.75,
+          combo: 2.5,
+          full: 3.5
+        }[s.pressureScope] || 2.5;
+        const sizeAdj = { S: 0.85, M: 1, L: 1.3 }[s.sizeMode === "size" ? s.houseSize : "M"];
+        let hours = scope * sizeAdj * (s.storeys >= 2 && s.pressureScope !== "driveway" ? 1.15 : 1);
+        hours *= accessFactor(s.access);
+        return roundQuarter(hours);
+      };
+
+      const estimateSolarHours = (s) => {
+        const panels = Math.max(4, s.panelCount || 12);
+        let hours = panels / 10;
+        hours *= storeyFactor(s.storeys);
+        hours *= accessFactor(s.access);
+        return { hours: roundQuarter(hours), panels };
+      };
+
+      const gutterRate = (s) =>
+        s.gutterStoreys === "double" || s.access === "restricted" || s.storeys >= 2
+          ? RATES.guttersHigh
+          : RATES.guttersLow;
+
+      const solarRate = (s) =>
+        s.storeys >= 2 || s.access === "restricted" ? RATES.solarHigh : RATES.solarLow;
+
+      const buildQuote = (s) => {
+        const lines = [];
+        let exGst = 0;
+
+        if (s.services.windows) {
+          const est = estimateWindowsHours(s);
+          const amount = Math.max(RATES.windows, est.hours * RATES.windows);
+          lines.push({
+            id: "windows",
+            name: "Window cleaning",
+            meta: `${est.windows} windows · ~${est.hours} hr @ $${RATES.windows}/hr (min $${RATES.windows})`,
+            amount
+          });
+          exGst += amount;
+        }
+
+        if (s.services.gutters) {
+          const hours = estimateGuttersHours(s);
+          const rate = gutterRate(s);
+          const amount = hours * rate;
+          lines.push({
+            id: "gutters",
+            name: "Gutter cleaning",
+            meta: `${s.gutterStoreys} storey gutters · ~${hours} hr @ $${rate}/hr`,
+            amount
+          });
+          exGst += amount;
+        }
+
+        if (s.services.pressure) {
+          const hours = estimatePressureHours(s);
+          const amount = hours * RATES.pressure;
+          const scopeLabel = $("pressureScope").selectedOptions[0].text;
+          lines.push({
+            id: "pressure",
+            name: "Pressure cleaning",
+            meta: `${scopeLabel} · ~${hours} hr @ $${RATES.pressure}/hr`,
+            amount
+          });
+          exGst += amount;
+        }
+
+        if (s.services.solar) {
+          const est = estimateSolarHours(s);
+          const rate = solarRate(s);
+          const amount = est.hours * rate;
+          lines.push({
+            id: "solar",
+            name: "Solar panel cleaning",
+            meta: `${est.panels} panels · ~${est.hours} hr @ $${rate}/hr`,
+            amount
+          });
+          exGst += amount;
+        }
+
+        const mornington = isMornington(s.suburb);
+        if (mornington && lines.length) {
+          const travel = RATES.morningtonTravel;
+          const toll = RATES.morningtonToll;
+          lines.push({
+            id: "travel",
+            name: "Mornington travel",
+            meta: "Travel time allowance",
+            amount: travel
+          });
+          lines.push({
+            id: "toll",
+            name: "Toll (EastLink / Peninsula Link)",
+            meta: "Return trip toll estimate",
+            amount: toll
+          });
+          exGst += travel + toll;
+        }
+
+        const gst = exGst * GST_RATE;
+        const incGst = exGst + gst;
+
+        return { lines, exGst, gst, incGst, mornington };
+      };
+
+      const defaultNotes = (s, quote) => {
+        const bits = [];
+        if (s.access === "restricted") bits.push("Restricted access allowed for in estimate.");
+        if (quote.mornington) bits.push("Includes Mornington travel + tolls.");
+        bits.push("Guide only — confirmed after on-site assessment.");
+        return bits.join(" ");
+      };
+
+      const syncServiceCards = () => {
+        document.querySelectorAll(".service").forEach((card) => {
+          const id = card.getAttribute("data-service");
+          const map = {
+            windows: "svcWindows",
+            gutters: "svcGutters",
+            pressure: "svcPressure",
+            solar: "svcSolar"
+          };
+          const on = $(map[id]).checked;
+          card.classList.toggle("active", on);
+        });
+      };
+
+      const syncSizeMode = () => {
+        const mode = form.sizeMode.value;
+        $("windowField").hidden = mode !== "windows";
+        $("sizeField").hidden = mode !== "size";
+      };
+
+      const setStatus = (msg, isError) => {
+        const el = $("status");
+        el.textContent = msg || "";
+        el.classList.toggle("error", !!isError);
+      };
+
+      const render = () => {
+        const s = stateFromForm();
+        syncServiceCards();
+        syncSizeMode();
+        $("travelBanner").classList.toggle("show", isMornington(s.suburb));
+
+        const anyService = Object.values(s.services).some(Boolean);
+        const quote = buildQuote(s);
+
+        if (!s.notes && anyService) {
+          // Keep user edits; only seed when empty
+        }
+
+        if (!anyService) {
+          $("quoteEmpty").hidden = false;
+          $("quoteBody").hidden = true;
+          persist(s, quote);
+          return;
+        }
+
+        $("quoteEmpty").hidden = true;
+        $("quoteBody").hidden = false;
+
+        $("lines").innerHTML = quote.lines
+          .map(
+            (line) => `
+            <div class="line">
+              <div class="line-name">${line.name}</div>
+              <div class="line-amt">${money(line.amount)}</div>
+              <div class="line-meta">${line.meta}</div>
+            </div>`
+          )
+          .join("");
+
+        $("exGst").textContent = money(quote.exGst);
+        $("gstAmt").textContent = money(quote.gst);
+        $("incGst").textContent = money(quote.incGst);
+
+        const sizeText =
+          s.sizeMode === "windows"
+            ? `${s.windowCount} windows`
+            : $("houseSize").selectedOptions[0].text;
+        $("printMeta").innerHTML = `
+          <strong>${s.customerName || "Quote"}</strong><br/>
+          ${s.suburb || "Suburb TBC"} · ${s.storeys === 3 ? "3+" : s.storeys} storey · ${sizeText} · ${s.access} access
+        `;
+
+        persist(s, quote);
+      };
+
+      const formatQuoteText = (s, quote) => {
+        const who = s.customerName ? `Hi ${s.customerName}` : "Hi";
+        const sizeText =
+          s.sizeMode === "windows"
+            ? `approx ${s.windowCount} windows`
+            : $("houseSize").selectedOptions[0].text;
+        const lines = quote.lines
+          .map((l) => `• ${l.name}: ${money(l.amount)} (${l.meta})`)
+          .join("\n");
+        const notes = s.notes || defaultNotes(s, quote);
+
+        return [
+          `${who} — Dynamic Cleaning quote for ${s.suburb || "your property"}:`,
+          `${s.storeys === 3 ? "3+" : s.storeys} storey · ${sizeText} · ${s.gutterStoreys} storey gutters · ${s.access} access`,
+          "",
+          lines,
+          "",
+          `Subtotal (ex GST): ${money(quote.exGst)}`,
+          `GST: ${money(quote.gst)}`,
+          `Total (inc GST): ${money(quote.incGst)}`,
+          "",
+          `Notes: ${notes}`,
+          "",
+          "Dynamic Cleaning",
+          "0433 230 310",
+          "dynamiccleaningvic@gmail.com",
+          "dynamiccleaningvic.com.au"
+        ].join("\n");
+      };
+
+      const persist = (s, quote) => {
+        try {
+          localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({
+              savedAt: new Date().toISOString(),
+              state: s,
+              totals: {
+                exGst: quote.exGst,
+                gst: quote.gst,
+                incGst: quote.incGst
+              }
+            })
+          );
+        } catch (_) {
+          /* ignore quota / private mode */
+        }
+      };
+
+      const applyState = (s) => {
+        if (!s) return;
+        $("suburb").value = s.suburb || "";
+        $("customerName").value = s.customerName || "";
+        const storeyInput = form.querySelector(`input[name="storeys"][value="${s.storeys}"]`);
+        if (storeyInput) storeyInput.checked = true;
+        const modeInput = form.querySelector(`input[name="sizeMode"][value="${s.sizeMode}"]`);
+        if (modeInput) modeInput.checked = true;
+        $("windowCount").value = s.windowCount || 20;
+        $("houseSize").value = s.houseSize || "M";
+        $("access").value = s.access || "easy";
+        const gutterInput = form.querySelector(`input[name="gutterStoreys"][value="${s.gutterStoreys}"]`);
+        if (gutterInput) gutterInput.checked = true;
+        $("svcWindows").checked = !!(s.services && s.services.windows);
+        $("svcGutters").checked = !!(s.services && s.services.gutters);
+        $("svcPressure").checked = !!(s.services && s.services.pressure);
+        $("svcSolar").checked = !!(s.services && s.services.solar);
+        $("pressureScope").value = s.pressureScope || "combo";
+        $("panelCount").value = s.panelCount || 12;
+        $("notes").value = s.notes || "";
+      };
+
+      const restore = () => {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const parsed = JSON.parse(raw);
+          if (parsed && parsed.state) applyState(parsed.state);
+        } catch (_) {
+          /* ignore corrupt storage */
+        }
+      };
+
+      form.addEventListener("input", () => {
+        setStatus("");
+        render();
+      });
+      form.addEventListener("change", () => {
+        setStatus("");
+        render();
+      });
+
+      $("copyBtn").addEventListener("click", async () => {
+        const s = stateFromForm();
+        const quote = buildQuote(s);
+        if (!quote.lines.length) return;
+        const text = formatQuoteText(s, quote);
+        try {
+          await navigator.clipboard.writeText(text);
+          setStatus("Quote copied — ready to paste into SMS or email.");
+        } catch (_) {
+          const area = document.createElement("textarea");
+          area.value = text;
+          document.body.appendChild(area);
+          area.select();
+          try {
+            document.execCommand("copy");
+            setStatus("Quote copied — ready to paste into SMS or email.");
+          } catch (err) {
+            setStatus("Could not copy automatically. Select and copy manually.", true);
+          }
+          area.remove();
+        }
+      });
+
+      $("printBtn").addEventListener("click", () => window.print());
+
+      $("resetBtn").addEventListener("click", () => {
+        form.reset();
+        $("svcWindows").checked = true;
+        $("svcGutters").checked = false;
+        $("svcPressure").checked = false;
+        $("svcSolar").checked = false;
+        $("notes").value = "";
+        setStatus("Form reset.");
+        render();
+      });
+
+      $("clearSavedBtn").addEventListener("click", () => {
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (_) {}
+        setStatus("Saved quote cleared from this browser.");
+      });
+
+      // Seed helpful default notes when empty and Mornington/access changes
+      const notesEl = $("notes");
+      let notesTouched = false;
+      notesEl.addEventListener("input", () => {
+        notesTouched = notesEl.value.trim().length > 0;
+      });
+      form.addEventListener("change", () => {
+        if (notesTouched) return;
+        const s = stateFromForm();
+        const quote = buildQuote(s);
+        if (Object.values(s.services).some(Boolean)) {
+          notesEl.value = defaultNotes(s, quote);
+        }
+      });
+
+      restore();
+      const initial = stateFromForm();
+      if (!initial.notes) {
+        notesEl.value = defaultNotes(initial, buildQuote(initial));
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>
