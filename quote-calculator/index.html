@@ -170,6 +170,7 @@
     }
     .segmented.two { grid-template-columns: 1fr 1fr; }
     .segmented label {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -183,8 +184,17 @@
       font-size: 0.92rem;
       cursor: pointer;
       transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      user-select: none;
     }
-    .segmented input { position: absolute; opacity: 0; pointer-events: none; }
+    .segmented input {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
     .segmented label:has(input:checked) {
       background: var(--teal-soft);
       border-color: var(--teal);
@@ -213,6 +223,7 @@
       display: flex;
       align-items: flex-start;
       gap: 0.65rem;
+      cursor: pointer;
     }
     .service-top input {
       width: 1.15rem;
@@ -463,33 +474,33 @@
         <span class="section-label">Services</span>
         <div class="services">
           <div class="service active" data-service="windows">
-            <div class="service-top">
+            <label class="service-top" for="svcWindows">
               <input type="checkbox" id="svcWindows" checked />
               <div>
                 <p class="service-title">Window cleaning</p>
                 <p class="service-rate">From $140 / hour (minimum)</p>
               </div>
-            </div>
+            </label>
           </div>
 
           <div class="service" data-service="gutters">
-            <div class="service-top">
+            <label class="service-top" for="svcGutters">
               <input type="checkbox" id="svcGutters" />
               <div>
                 <p class="service-title">Gutter cleaning</p>
                 <p class="service-rate">$180–$200 / hour</p>
               </div>
-            </div>
+            </label>
           </div>
 
           <div class="service" data-service="pressure">
-            <div class="service-top">
+            <label class="service-top" for="svcPressure">
               <input type="checkbox" id="svcPressure" />
               <div>
                 <p class="service-title">Pressure cleaning</p>
                 <p class="service-rate">$220 / hour</p>
               </div>
-            </div>
+            </label>
             <div class="service-extra">
               <label class="field">
                 Areas to clean
@@ -504,13 +515,13 @@
           </div>
 
           <div class="service" data-service="solar">
-            <div class="service-top">
+            <label class="service-top" for="svcSolar">
               <input type="checkbox" id="svcSolar" />
               <div>
                 <p class="service-title">Solar panel cleaning</p>
                 <p class="service-rate">$120–$150 / hour</p>
               </div>
-            </div>
+            </label>
             <div class="service-extra">
               <label class="field">
                 Approx. panels
